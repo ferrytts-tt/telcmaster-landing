@@ -1,0 +1,9 @@
+{
+  "name": "telcmaster-landingpage",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "dependencies": {}
+}

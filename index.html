@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELCMASTER B2 — Réussissez dès la première tentative</title>
+    <meta name="description" content="TELCMASTER B2 est la plateforme de préparation TELC B2 la plus complète. Simulation réelle, audio, traduction arabe-allemand, correction par professeurs natifs.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (modern, clean SVG) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement" id="announcement">
+        <i data-lucide="info" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 8px;"></i>
+        <span class="text">Nous améliorons constamment la plateforme selon les retours des candidats et les nouveautés <strong>TELC Digi 2.0</strong> afin d’offrir la préparation la plus moderne possible.</span>
+    </div>
+
+    <!-- WhatsApp Support Button -->
+    <a href="https://wa.me/" class="whatsapp-btn" target="_blank" aria-label="Support WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.121 1.532 5.848L.057 23.5l5.78-1.516A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.492-5.212-1.355l-.374-.214-3.432.9.916-3.348-.233-.389A9.936 9.936 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+    </a>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta-mobile">
+        <a href="https://telcmaster.netlify.app/" class="cta-button primary-cta" id="stickyCtaText">Commencer maintenant →</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         1. HERO SECTION
+    ════════════════════════════════════════ -->
+    <section class="hero fade-in">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <!-- Logo Badge -->
+            <div class="hero-badge">
+                <div class="badge-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <span>Le futur de la préparation TELC B2 est ici</span>
+            </div>
+
+            <h1 class="main-title">TELCMASTER <span class="title-accent">B2</span></h1>
+            <p class="subtitle">🚨 <strong>TELCMASTER B2</strong><br>Préparez TELC B2 dans les mêmes conditions que l’examen réel — avant même le jour J.</p>
+
+            <!-- Countdown -->
+            <div class="countdown-container">
+                <div class="countdown-label">
+                    <i data-lucide="zap"></i>
+                    L'OFFRE EXCLUSIVE SE TERMINE DANS :
+                </div>
+                <div id="countdown" class="countdown">
+                    <div class="countdown-box"><span id="days">00</span><small>Jours</small></div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-box"><span id="hours">00</span><small>Heures</small></div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-box"><span id="minutes">00</span><small>Min</small></div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-box"><span id="seconds">00</span><small>Sec</small></div>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://telcmaster.netlify.app/" class="cta-button primary-cta pulse">
+                    <i data-lucide="rocket"></i>
+                    Je veux réussir mon TELC B2
+                </a>
+                <a href="https://telcmaster.netlify.app/" class="cta-button secondary-cta">
+                    <i data-lucide="play-circle"></i>
+                    Voir la démo
+                </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="trust-row">
+                <span><i data-lucide="check-circle"></i> 2,000 abonnés</span>
+                <span><i data-lucide="star"></i> Note 4.9/5</span>
+                <span><i data-lucide="shield-check"></i> Garantie de succès</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         STEPS SECTION (Inspired by Autobuzz)
+    ════════════════════════════════════════ -->
+    <section class="steps-section fade-in" style="position: relative; overflow: hidden;">
+        <!-- Spline 3D Background -->
+        <div class="spline-bg-container">
+            <iframe src='https://my.spline.design/reactiveorb-SYrX9IUNyC27AiZ7mtzHopAT/' frameborder='0' width='100%' height='100%'></iframe>
+            <div class="spline-overlay"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="section-tag blue-tag"><i data-lucide="map"></i> Votre parcours</div>
+            <h2>Réussir en 4 étapes simples</h2>
+            <div class="steps-timeline">
+                <!-- Step 1 -->
+                <div class="step-row" data-step="1">
+                    <div class="step-content">
+                        <div class="step-badge blue">Étape 1</div>
+                        <h3>Créez votre compte</h3>
+                        <p>Inscrivez-vous en quelques secondes et accédez immédiatement à la plateforme TELCMASTER B2.</p>
+                        <div class="step-tip">👉 Simple, rapide et accessible depuis téléphone ou ordinateur.</div>
+                    </div>
+                    <div class="step-number">1</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-row reverse" data-step="2">
+                    <div class="step-content">
+                        <div class="step-badge yellow">Étape 2</div>
+                        <h3>Essayez le modèle gratuit</h3>
+                        <p>Découvrez gratuitement l’expérience TELCMASTER :</p>
+                        <ul class="step-list">
+                            <li>Interface réelle de l’examen</li>
+                            <li>Hörverstehen interactif</li>
+                            <li>Traduction arabe ↔ allemand</li>
+                            <li>Système de correction intelligent</li>
+                        </ul>
+                        <div class="step-tip">👉 Testez la différence avant de commencer votre préparation complète.</div>
+                    </div>
+                    <div class="step-number">2</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-row" data-step="3">
+                    <div class="step-content">
+                        <div class="step-badge green">Étape 3</div>
+                        <h3>Passez au paiement sécurisé</h3>
+                        <p>Choisissez votre accès et débloquez immédiatement :</p>
+                        <ul class="step-list check">
+                            <li>Tous les modèles de tests</li>
+                            <li>Les mises à jour quotidiennes</li>
+                            <li>Les corrections et solutions</li>
+                            <li>Les conseils d’examen</li>
+                            <li>Sections Mündlich et Hörverstehen avancées</li>
+                            <li>Support 24/7</li>
+                        </ul>
+                        <div class="step-tip">👉 Paiement simple, rapide et sécurisé.</div>
+                    </div>
+                    <div class="step-number">3</div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-row reverse" data-step="4">
+                    <div class="step-content">
+                        <div class="step-badge red">Étape 4</div>
+                        <h3>Lancez-vous dans une préparation tout-en-un</h3>
+                        <p>Préparez TELC B2 dans des conditions réelles :</p>
+                        <ul class="step-list">
+                            <li>🎧 Écoutez les audios</li>
+                            <li>📖 Lisez les transcripts</li>
+                            <li>📝 Travaillez sans LOSUNG</li>
+                            <li>📊 Recevez vos scores</li>
+                            <li>🎤 Enregistrez votre Sprechen</li>
+                            <li>🇩🇪 Corrections par des professeurs natifs</li>
+                        </ul>
+                    </div>
+                    <div class="step-number">4</div>
+                </div>
+                
+                <!-- Connection Line (Desktop) -->
+                <svg class="step-line-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path class="step-path" d="" fill="none" stroke="rgba(0, 209, 255, 0.1)" stroke-width="0.5" stroke-dasharray="2 2" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         2. SECTION PROBLÈME
+    ════════════════════════════════════════ -->
+    <section class="problem-section fade-in">
+        <div class="container">
+            <div class="section-tag danger-tag"><i data-lucide="alert-triangle"></i> Le problème</div>
+            <h2>La vérité sur la préparation TELC B2</h2>
+            <p class="section-sub">La majorité des candidats utilisent encore des ressources obsolètes :</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon"><i data-lucide="file-x"></i></div>
+                    <p>PDFs anciens non vérifiés</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i data-lucide="hard-drive"></i></div>
+                    <p>Drives remplis d'erreurs</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i data-lucide="volume-x"></i></div>
+                    <p>Audios copiés ou mal structurés</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i data-lucide="x-circle"></i></div>
+                    <p>Aucun entraînement réel à l'examen</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i data-lucide="ban"></i></div>
+                    <p>Aucune correction personnalisée</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i data-lucide="calendar-x"></i></div>
+                    <p>Aucune mise à jour des vrais thèmes</p>
+                </div>
+            </div>
+
+            <div class="problem-result" style="max-width: 800px; margin: 2rem auto;">
+                <i data-lucide="alert-circle"></i>
+                <span>Chaque semaine perdue avec de mauvais PDFs peut repousser votre <strong>réussite</strong>, votre <strong>visa</strong>, votre <strong>Ausbildung</strong> ou votre <strong>départ en Allemagne</strong>.</span>
+            </div>
+
+            <!-- New Warning Card -->
+            <div class="problem-warning-card">
+                <h3><i data-lucide="eye-off"></i> Ce que les candidats ne savent pas</h3>
+                <p>La majorité des drives gratuits :</p>
+                <ul>
+                    <li><i data-lucide="x-circle"></i> contiennent des erreurs invisibles</li>
+                    <li><i data-lucide="x-circle"></i> utilisent des anciens modèles</li>
+                    <li><i data-lucide="x-circle"></i> mélangent faux et vrais examens</li>
+                    <li><i data-lucide="x-circle"></i> l’apprentissage par codes sans comprendre l’énoncé représente aujourd’hui un vrai danger avec le nouveau système TELC Digi 2.0.</li>
+                    <li><i data-lucide="x-circle"></i> et peuvent vous faire mémoriser de mauvaises réponses</li>
+                </ul>
+                <div class="warning-footer">
+                    👉 <strong>Le pire ?</strong> Le candidat pense étudier correctement… jusqu’au jour de l’examen.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         3. SECTION SOLUTION
+    ════════════════════════════════════════ -->
+    <section class="solution-section fade-in">
+        <div class="container">
+            <div class="section-tag success-tag"><i data-lucide="lightbulb"></i> La solution</div>
+            <h2>Depuis octobre 2025, une nouvelle méthode change tout</h2>
+            <div class="solution-card">
+                <div class="solution-logo">
+                    <div class="sol-icon"><i data-lucide="graduation-cap"></i></div>
+                    <h3>TELCMASTER</h3>
+                </div>
+                <p>Une plateforme complète conçue spécialement pour la préparation TELC B2, utilisée par des candidats réels qui ont commencé à <strong>réussir dès la première tentative.</strong></p>
+                <a href="https://telcmaster.netlify.app/" class="cta-button primary-cta">
+                    <i data-lucide="arrow-right-circle"></i>
+                    Commencer ma simulation réelle
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Preview Section -->
+    <section class="preview-section fade-in">
+        <div class="container">
+            <div class="preview-layout">
+                <div class="preview-content">
+                    <div class="section-tag blue-tag"><i data-lucide="layout"></i> Aperçu de l'interface</div>
+                    <h2>Une interface moderne, fluide et identique à l'examen</h2>
+                    <p>Découvrez une immersion totale. Chaque section a été pensée pour reproduire exactement les conditions de l'examen réel.</p>
+                    <ul class="preview-features">
+                        <li><i data-lucide="check-circle"></i> Chronomètre en temps réel</li>
+                        <li><i data-lucide="check-circle"></i> Audio haute fidélité intégré</li>
+                        <li><i data-lucide="check-circle"></i> Éditeur de texte intelligent</li>
+                        <li><i data-lucide="check-circle"></i> Navigation fluide entre les sections</li>
+                    </ul>
+                </div>
+                <div class="preview-visual">
+                    <div class="card-stack">
+                        <div class="stack-card"><img src="media__1778536225597.png" alt="Lesen Teil 3"></div>
+                        <div class="stack-card"><img src="media__1778536252983.png" alt="Hörverstehen"></div>
+                        <div class="stack-card"><img src="media__1778536267023.png" alt="Schreiben"></div>
+                        <div class="stack-card"><img src="media__1778536291996.png" alt="Sprachbausteine"></div>
+                        <div class="stack-card"><img src="media__1778536305774.png" alt="Lesen Teil 1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         3.5 IMAGINEZ
+    ════════════════════════════════════════ -->
+    <section class="imagination-section fade-in">
+        <div class="container">
+            <div class="imagination-box">
+                <div class="section-tag blue-tag" style="margin-bottom: 32px;"><i data-lucide="brain"></i> Mentalité</div>
+                <h2>Imaginez le jour de l’examen…</h2>
+                <ul class="imagination-list">
+                    <li><i data-lucide="eye"></i> Vous ouvrez l’examen.</li>
+                    <li><i data-lucide="monitor"></i> Vous reconnaissez déjà l’interface.</li>
+                    <li><i data-lucide="check-square"></i> Vous savez exactement comment fonctionne chaque Teil.</li>
+                    <li><i data-lucide="headphones"></i> Les audios ne vous stressent plus.</li>
+                    <li><i data-lucide="layers"></i> Vous avez déjà travaillé des dizaines de modèles similaires.</li>
+                </ul>
+                <div class="imagination-conclusion">
+                    👉 Votre cerveau entre en mode “déjà-vu”.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         4. FEATURES — VALUE STACK
+    ════════════════════════════════════════ -->
+    <section class="features-section fade-in">
+        <div class="container">
+            <div class="section-tag blue-tag"><i data-lucide="layers"></i> Fonctionnalités</div>
+            <h2>Les atouts puissants de TELCMASTER</h2>
+            <p class="section-sub">Tout ce dont vous avez besoin pour réussir, en une seule plateforme.</p>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #3B82F6;">
+                        <i data-lucide="languages"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Traduction complète</h3>
+                        <p>Arabe ↔ Allemand. Compréhension totale de chaque exercice.</p>
+                    </div>
+                    <span class="feature-num">01</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #14B8A6;">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Interface identique à l'examen</h3>
+                        <p>Même structure, même logique, même expérience que l'examen officiel.</p>
+                    </div>
+                    <span class="feature-num">02</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #8B5CF6;">
+                        <i data-lucide="headphones"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Hörverstehen avancée</h3>
+                        <p>Audios réels, lecture en allemand, transcript audio, traduction arabe.</p>
+                    </div>
+                    <span class="feature-num">03</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #F59E0B;">
+                        <i data-lucide="file-check-2"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Mode examen sans LÖSUNG</h3>
+                        <p>Travail en condition réelle puis correction. Note automatique par Teil.</p>
+                    </div>
+                    <span class="feature-num">04</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #10B981;">
+                        <i data-lucide="bar-chart-3"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Accès au LÖSUNG</h3>
+                        <p>Comparaison immédiate des réponses avec ou sans correction.</p>
+                    </div>
+                    <span class="feature-num">05</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #3B82F6;">
+                        <i data-lucide="calendar-check"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Mises à jour quotidiennes</h3>
+                        <p>Nouveaux thèmes d'examen ajoutés régulièrement.</p>
+                    </div>
+                    <span class="feature-num">06</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #14B8A6;">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Équipe de suivi active</h3>
+                        <p>Surveillance permanente des nouveaux examens officiels.</p>
+                    </div>
+                    <span class="feature-num">07</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #8B5CF6;">
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Conseils d'examen</h3>
+                        <p>Stratégies, techniques et astuces par des professionnels.</p>
+                    </div>
+                    <span class="feature-num">08</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #F59E0B;">
+                        <i data-lucide="mic"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Section Mündlich réaliste</h3>
+                        <p>Dialogues identiques au jury. Réponses prêtes à adapter.</p>
+                    </div>
+                    <span class="feature-num">09</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #10B981;">
+                        <i data-lucide="mic-2"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Correction professeurs natifs</h3>
+                        <p>Enregistrement vocal et feedback détaillé pour progresser.</p>
+                    </div>
+                    <span class="feature-num">10</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #F59E0B;">
+                        <i data-lucide="gift"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Programme d'affiliation</h3>
+                        <p>Récompenses en espèces et commissions sur vos recommandations.</p>
+                    </div>
+                    <span class="feature-num">11</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #3B82F6;">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Service client 24/7</h3>
+                        <p>Support rapide et continu à tout moment.</p>
+                    </div>
+                    <span class="feature-num">12</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="--icon-color: #14B8A6;">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Réponses sans fautes</h3>
+                        <p>Contenu vérifié et corrigé méticuleusement par des experts.</p>
+                    </div>
+                    <span class="feature-num">13</span>
+                </div>
+
+            </div>
+
+            <div class="cta-container">
+                <a href="https://telcmaster.netlify.app/" class="cta-button secondary-cta">
+                    <i data-lucide="zap"></i>
+                    Je veux tous ces avantages
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         5. COMPARAISON vs 6. DIFFÉRENCE
+    ════════════════════════════════════════ -->
+    <section class="vs-section fade-in">
+        <div class="container">
+            <h2>TELCMASTER vs les autres méthodes</h2>
+            <div class="vs-grid">
+                <div class="vs-card vs-bad">
+                    <div class="vs-header">
+                        <i data-lucide="x-octagon"></i>
+                        <h3>Autres méthodes</h3>
+                    </div>
+                    <ul>
+                        <li><i data-lucide="x"></i> Pas de mise à jour</li>
+                        <li><i data-lucide="x"></i> Pas de vraie interface d'examen</li>
+                        <li><i data-lucide="x"></i> Pas de correction réelle</li>
+                        <li><i data-lucide="x"></i> Pas de transcript audio</li>
+                        <li><i data-lucide="x"></i> Pas de suivi personnalisé</li>
+                        <li><i data-lucide="x"></i> Contenu souvent copié ou incomplet</li>
+                    </ul>
+                </div>
+                <div class="vs-separator">VS</div>
+                <div class="vs-card vs-good">
+                    <div class="vs-header">
+                        <i data-lucide="award"></i>
+                        <h3>TELCMASTER B2</h3>
+                    </div>
+                    <ul>
+                        <li><i data-lucide="check"></i> Simulation réelle de l'examen TELC B2</li>
+                        <li><i data-lucide="check"></i> Traduction complète arabe-allemand</li>
+                        <li><i data-lucide="check"></i> Audio + transcript + compréhension</li>
+                        <li><i data-lucide="check"></i> Correction par professeurs natifs</li>
+                        <li><i data-lucide="check"></i> Mises à jour quotidiennes</li>
+                        <li><i data-lucide="check"></i> Interface identique à l'examen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         7. SECTION RÉSULTATS
+    ════════════════════════════════════════ -->
+    <section class="results-section fade-in">
+        <div class="container">
+            <div class="section-tag teal-tag"><i data-lucide="trending-up"></i> Résultats</div>
+            <h2>Résultats depuis octobre 2025</h2>
+            
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-icon"><i data-lucide="users"></i></div>
+                    <h3>Des milliers de candidats</h3>
+                    <p>utilisent TELCMASTER pour leur préparation quotidienne.</p>
+                </div>
+                <div class="result-item">
+                    <div class="result-icon"><i data-lucide="award"></i></div>
+                    <h3>Réussite dès la 1ère tentative</h3>
+                    <p>grâce à une simulation identique à l'examen réel.</p>
+                </div>
+                <div class="result-item">
+                    <div class="result-icon"><i data-lucide="heart"></i></div>
+                    <h3>Recommandation record</h3>
+                    <p>Plusieurs utilisateurs reviennent uniquement pour recommander la plateforme à leurs amis.</p>
+                </div>
+            </div>
+
+            <div class="momentum-banner">
+                <h4><i data-lucide="trending-up"></i> Plusieurs candidats rejoignent TELCMASTER chaque semaine</h4>
+                <p>Parce qu’ils ont compris que le système <strong>TELC Digi 2.0</strong> demande aujourd’hui une vraie compréhension et non une simple mémorisation par codes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TESTIMONIALS — prêt pour ajout
+    ════════════════════════════════════════ -->
+    <section class="testimonials-section fade-in">
+        <div class="container">
+            <div class="section-tag purple-tag"><i data-lucide="star"></i> Témoignages</div>
+            <h2>Ce que disent nos candidats</h2>
+            <div class="testimonials-grid">
+                <!-- 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Franchement TELCMASTER m’a beaucoup aidé surtout dans le Hörverstehen. Le jour de l’examen j’avais vraiment l’impression de déjà connaître le système. Les transcripts et les traductions m’ont fait gagner énormément de temps.”</p>
+                    <div class="testimonial-author">Ahmed B. – Tunis</div>
+                </div>
+                <!-- 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Avant j’étudiais avec des PDFs et des drives Facebook mais j’étais toujours perdu. Avec TELCMASTER tout est organisé et clair. J’ai réussi B2 dès la première fois.”</p>
+                    <div class="testimonial-author">Mariem K. – Sousse</div>
+                </div>
+                <!-- 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Le meilleur avantage pour moi c’était la correction du Mündlich par des professeurs natifs. J’ai compris exactement ce que le jury attend.”</p>
+                    <div class="testimonial-author">Yassine T. – Sfax</div>
+                </div>
+                <!-- 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“wallah platforme behya barcha 😭 surtout Hörverstehen w transcript. 9bal kont nhafed codes w fel exam tdhaya3t.”</p>
+                    <div class="testimonial-author">Eya - Medenin</div>
+                </div>
+                <!-- 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“TELCMASTER 5alletni n7ess rouhi deja fi l’examen 😅 même interface même logique. Le stress 9al barcha nhar l’examen.”</p>
+                    <div class="testimonial-author">Rahma – Monastir</div>
+                </div>
+                <!-- 6 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Les nouveaux thèmes sont ajoutés rapidement et ça fait une énorme différence. On sent qu’il y a une vraie équipe derrière la plateforme.”</p>
+                    <div class="testimonial-author">Walid H. – Ariana</div>
+                </div>
+                <!-- 7 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“sara7a a7sen 7aja enou tnajem t5adem sans lösung ba3d tchouf score mte3ek direct. Hedha 3aweni barcha bech na3ref niveau mte3i.”</p>
+                    <div class="testimonial-author">Chayma - Gabes</div>
+                </div>
+                <!-- 8 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“nansa7kom biha chabeb 🔥 plateforme منظمة ”</p>
+                    <div class="testimonial-author">Ala - Denden</div>
+                </div>
+                <!-- 9 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“wallah rat7etni m tarjma 😭 surtout fel Hörverstehen. Fhemt les reponses kont dima n8alet fihom.”</p>
+                    <div class="testimonial-author">Marwa – Kasserine</div>
+                </div>
+                <!-- 10 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Mündlich top 🔥 les dialogues kif ma y7ebouhom exactement fel examen.”</p>
+                    <div class="testimonial-author">Nour – Bizerte- Sejnan</div>
+                </div>
+                <!-- 11 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Hmdlh nja7t session Décembre w merci nchallah fi mizen 7assenetkom équipe TELCMASTER.”</p>
+                    <div class="testimonial-author">Mohamed Yesser – Kef</div>
+                </div>
+                <!-- 12 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>“Bravo wallah 👏 fier de l’équipe tunisienne TELCMASTER. Platforme niveau kbiiir barcha.”</p>
+                    <div class="testimonial-author">Rania – Ben Arous - Zahra</div>
+                </div>
+            </div>
+
+            <!-- Add Review Form -->
+            <div class="add-review-box fade-in">
+                <div class="form-card">
+                    <div class="form-header">
+                        <div class="badge-icon small"><i data-lucide="pen-tool"></i></div>
+                        <h3>Partagez votre expérience</h3>
+                        <p>Votre réussite inspire les autres candidats. Laissez-nous un message !</p>
+                    </div>
+                    
+                    <form id="reviewForm" class="review-form" action="https://formsubmit.co/telcmaster@gmail.com" method="POST">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="Nouveau Témoignage - TELCMASTER">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://telcmaster.netlify.app/">
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="userName">Nom Complet</label>
+                                <input type="text" id="userName" name="name" placeholder="Ex: Ahmed B." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userCity">Ville</label>
+                                <input type="text" id="userCity" name="city" placeholder="Ex: Tunis" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Votre Note</label>
+                            <div class="rating-stars" id="ratingPicker">
+                                <i data-lucide="star" class="star-btn active" data-value="1"></i>
+                                <i data-lucide="star" class="star-btn active" data-value="2"></i>
+                                <i data-lucide="star" class="star-btn active" data-value="3"></i>
+                                <i data-lucide="star" class="star-btn active" data-value="4"></i>
+                                <i data-lucide="star" class="star-btn active" data-value="5"></i>
+                            </div>
+                            <input type="hidden" id="ratingValue" name="rating" value="5">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userReview">Votre Témoignage</label>
+                            <textarea id="userReview" name="message" rows="4" placeholder="Racontez-nous comment TELCMASTER vous a aidé..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="cta-button primary-cta">
+                            <i data-lucide="send"></i>
+                            Publier mon avis
+                        </button>
+                    </form>
+
+                    <div id="reviewSuccess" class="form-success-msg hidden">
+                        <div class="success-icon"><i data-lucide="check-circle"></i></div>
+                        <h4>Merci pour votre partage !</h4>
+                        <p>Votre témoignage a été envoyé et sera visible après validation par notre équipe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         7.5 QUALIFICATION
+    ════════════════════════════════════════ -->
+    <section class="qualification-section fade-in">
+        <div class="container">
+            <div class="qualify-grid">
+                <!-- For you -->
+                <div class="qualify-card qualify-good">
+                    <h3>✅ TELCMASTER est pour vous si…</h3>
+                    <ul class="qualify-list">
+                        <li><i data-lucide="check-circle"></i> Vous voulez réussir rapidement</li>
+                        <li><i data-lucide="check-circle"></i> Vous êtes fatigué des drives désorganisés</li>
+                        <li><i data-lucide="check-circle"></i> Vous voulez comprendre au lieu de mémoriser</li>
+                        <li><i data-lucide="check-circle"></i> Vous préparez Ausbildung / Allemagne</li>
+                        <li><i data-lucide="check-circle"></i> Vous voulez une simulation réelle du TELC Digi 2.0</li>
+                    </ul>
+                </div>
+
+                <!-- Not for you -->
+                <div class="qualify-card qualify-bad">
+                    <h3>🚫 TELCMASTER n’est PAS pour vous si…</h3>
+                    <ul class="qualify-list">
+                        <li><i data-lucide="x-circle"></i> Vous cherchez uniquement des codes</li>
+                        <li><i data-lucide="x-circle"></i> Vous refusez de travailler sérieusement</li>
+                        <li><i data-lucide="x-circle"></i> Vous voulez des PDFs gratuits sans structure</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         8. CONCLUSION
+    ════════════════════════════════════════ -->
+    <section class="conclusion-section fade-in">
+        <div class="container">
+            <div class="conclusion-box">
+                <div class="conclusion-icon"><i data-lucide="sparkles"></i></div>
+                <p class="conclusion-intro">TELCMASTER n'est pas un simple outil d'étude.</p>
+                <ul class="conclusion-points">
+                    <li>
+                        <i data-lucide="arrow-right"></i>
+                        <span>C'est une <strong>plateforme complète</strong> de préparation au TELC B2</span>
+                    </li>
+                    <li>
+                        <i data-lucide="arrow-right"></i>
+                        <span>Basée sur une <strong>simulation réelle</strong> de l'examen officiel</span>
+                    </li>
+                    <li>
+                        <i data-lucide="arrow-right"></i>
+                        <span>Avec un <strong>accompagnement personnalisé</strong> et des corrections par des experts</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         8.5 COÛT DE L'ÉCHEC
+    ════════════════════════════════════════ -->
+    <section class="failure-cost-section fade-in">
+        <div class="container">
+            <div class="failure-cost-card">
+                <h3>🚨 Si vous échouez TELC B2…</h3>
+                <ul class="failure-list">
+                    <li><i data-lucide="clock"></i> vous perdez du temps,</li>
+                    <li><i data-lucide="credit-card"></i> vous repayez l’examen,</li>
+                    <li><i data-lucide="plane"></i> vous retardez votre projet Allemagne,</li>
+                    <li><i data-lucide="refresh-cw"></i> et vous recommencez des mois de préparation.</li>
+                </ul>
+                <div class="failure-conclusion">
+                    👉 <strong>TELCMASTER</strong> a été conçu pour éviter exactement cela.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         8.7 COMPARAISON DE VALEUR
+    ════════════════════════════════════════ -->
+    <section class="comparison-section fade-in">
+        <div class="container">
+            <div class="comparison-card">
+                <h3>Ce que beaucoup de candidats dépensent avant même de réussir TELC B2…</h3>
+                <ul class="comparison-list">
+                    <li>❌ <strong>250 DT+</strong> pour le Vorbereitung</li>
+                    <li>❌ <strong>70 DT+</strong> pour des livres remplis d’erreurs et sans traduction</li>
+                    <li>❌ <strong>50 DT+</strong> en photocopies et nombreux documents</li>
+                    <li>❌ <strong>120 DT+</strong> pour travailler uniquement le Mündlich</li>
+                    <li>❌ Plusieurs déplacements et frais supplémentaires</li>
+                    <li>❌ Des semaines perdues à chercher les vrais thèmes d’examen</li>
+                </ul>
+                <div class="comparison-total">
+                    <div class="total-value">Valeur totale : <span style="color: #FF3B3B;">plus de 490 DT+</span></div>
+                    <div class="offer-value">🔥 Aujourd’hui accessible à partir de 59 DT</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         9. PRICING
+    ════════════════════════════════════════ -->
+    <section id="pricing" class="pricing-section fade-in">
+        <div class="container">
+            <div class="section-tag blue-tag"><i data-lucide="tag"></i> Tarifs</div>
+            <h2>Choisissez votre formule de réussite</h2>
+            <p class="section-sub">Des tarifs transparents pour une préparation complète.</p>
+
+            <div class="pricing-grid">
+                <!-- Pack Premium -->
+                <div class="pricing-card">
+                    <div class="pricing-badge">Populaire</div>
+                    <i data-lucide="headphones" style="color: var(--accent-blue); margin-bottom: 20px;"></i>
+                    <h3>Pack Premium</h3>
+                    <p class="pricing-desc">L'essentiel pour réussir l'écrit et l'écoute.</p>
+                    <div class="price-wrap">
+                        <span class="price">59</span>
+                        <span class="currency">DT</span>
+                        <span class="period">/ 3 mois</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Accès complet thèmes Lesen</li>
+                        <li><i data-lucide="check"></i> Travail par Teil séparé</li>
+                        <li><i data-lucide="check"></i> Accès toutes parties Hören</li>
+                        <li><i data-lucide="check"></i> Audios officiels TELC</li>
+                        <li><i data-lucide="check"></i> Interface examen réelle</li>
+                        <li><i data-lucide="check"></i> Traduction complète Arabe</li>
+                    </ul>
+                    <a href="https://telcmaster.netlify.app/" class="cta-button secondary-cta">Accéder à ma préparation complète</a>
+                </div>
+
+                <!-- Pack Platinium -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Recommandé</div>
+                    <i data-lucide="mic" style="color: var(--accent-blue); margin-bottom: 20px;"></i>
+                    <h3>Pack Platinium</h3>
+                    <p class="pricing-desc">L'expérience complète pour l'excellence.</p>
+                    <div class="price-wrap">
+                        <span class="price">89</span>
+                        <span class="currency">DT</span>
+                        <span class="period">/ 3 mois</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check-circle" style="color: var(--accent-teal);"></i> Tout le Pack Premium +</li>
+                        <li><i data-lucide="check"></i> Préparation Mündlich</li>
+                        <li><i data-lucide="check"></i> Enregistrement oral</li>
+                        <li><i data-lucide="check"></i> Correction par profs Natifs</li>
+                        <li><i data-lucide="check"></i> Sujets Mündlich Teil 2 & 3</li>
+                        <li><i data-lucide="check"></i> Corrections détaillées</li>
+                    </ul>
+                    <a href="https://telcmaster.netlify.app/" class="cta-button primary-cta">Accéder à ma préparation complète</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         9.5 URGENCY — FOMO
+    ════════════════════════════════════════ -->
+    <section class="urgency-section fade-in">
+        <div class="container">
+            <div class="urgency-card">
+                <h3>⏳ Pendant que vous hésitez…</h3>
+                <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 32px;">D’autres candidats :</p>
+                <ul class="urgency-list">
+                    <li><i data-lucide="check-circle"></i> s’entraînent déjà sur les nouveaux thèmes</li>
+                    <li><i data-lucide="check-circle"></i> améliorent leur Hörverstehen</li>
+                    <li><i data-lucide="check-circle"></i> et se préparent dans les vraies conditions de l’examen</li>
+                </ul>
+                <div class="urgency-conclusion">
+                    👉 Chaque semaine compte.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         10. CTA FINAL
+    ════════════════════════════════════════ -->
+    <section id="cta-section" class="final-cta-section fade-in">
+        <div class="cta-glow"></div>
+        <div class="container">
+            <div class="section-tag fire-tag"><i data-lucide="flame"></i> Agissez maintenant</div>
+            <h2>Commencez votre préparation TELC B2 maintenant</h2>
+            <p>Ne laissez pas votre réussite au hasard. Rejoignez TELCMASTER aujourd'hui.</p>
+            <a href="https://telcmaster.netlify.app/" class="cta-button primary-cta pulse-fast">
+                <i data-lucide="rocket"></i>
+                Débloquer TELCMASTER maintenant
+            </a>
+            <div class="secure-badges">
+                <span><i data-lucide="lock"></i> Paiement sécurisé</span>
+                <span><i data-lucide="shield"></i> Données protégées</span>
+                <span><i data-lucide="clock"></i> Accès immédiat</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button with Progress Circle -->
+    <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+        <svg class="progress-circle" width="50" height="50" viewBox="0 0 50 50">
+            <circle class="progress-bg" cx="25" cy="25" r="22" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3"></circle>
+            <circle id="progressPath" class="progress-path" cx="25" cy="25" r="22" fill="none" stroke="var(--accent-blue)" stroke-width="3" stroke-dasharray="138.23" stroke-dashoffset="138.23"></circle>
+        </svg>
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/21648024441" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactez-nous sur WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <div class="badge-icon small"><i data-lucide="graduation-cap"></i></div>
+            <span>TELCMASTER</span>
+        </div>
+        <p id="footerCopy">&copy; 2026 TELCMASTER. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
