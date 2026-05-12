@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Optimized Countdown Timer
     let targetDate = new Date();
-    targetDate.setHours(targetDate.getHours() + 14, 45, 0, 0); // Always show ~14 hours for urgency
+    targetDate.setDate(targetDate.getDate() + 3); // Set to 3 days from now
 
     const updateCountdown = () => {
         const now = new Date().getTime();
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (distance < 0) {
             targetDate = new Date();
-            targetDate.setHours(targetDate.getHours() + 14, 45, 0, 0);
+            targetDate.setDate(targetDate.getDate() + 3);
             return;
         }
 
