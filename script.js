@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize icons
+    lucide.createIcons();
+
     // 1. Intersection Observer for Fade-in animations
     const fadeElements = document.querySelectorAll('.fade-in');
     
