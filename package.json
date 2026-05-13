@@ -5,5 +5,7 @@
     "dev": "npx serve .",
     "start": "npx serve ."
   },
-  "dependencies": {}
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
 }

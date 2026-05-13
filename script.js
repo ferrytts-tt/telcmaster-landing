@@ -225,6 +225,116 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 7. Trailing Ring Cursor Logic
+    const cursorRing = document.querySelector('.cursor-ring');
+    let mouseX = 0;
+    let mouseY = 0;
+    let ringX = 0;
+    let ringY = 0;
+    const inertia = 0.2; // Smooth following
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        if (cursorRing) cursorRing.style.opacity = '1';
+    });
+
+    const animateRing = () => {
+        ringX += (mouseX - ringX) * inertia;
+        ringY += (mouseY - ringY) * inertia;
+        
+        if (cursorRing) {
+            cursorRing.style.left = `${ringX}px`;
+            cursorRing.style.top = `${ringY}px`;
+        }
+        
+        requestAnimationFrame(animateRing);
+    };
+    
+    animateRing();
+
+    // Hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .star-btn, .step-content, .pricing-card, .problem-card, .testimonial-card, .feature-card, .badge-icon, .sol-icon');
+    
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    document.addEventListener('mouseleave', () => {
+        if (cursorRing) cursorRing.style.opacity = '0';
+    });
+
+    // 7. Session Modal Logic
+    const openBtn = document.getElementById('openSessionModal');
+    const closeBtn = document.getElementById('closeSessionModal');
+    const modal = document.getElementById('sessionModal');
+    const sessionForm = document.getElementById('sessionForm');
+    const sessionSuccess = document.getElementById('sessionSuccess');
+
+    const openModal = () => {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        lucide.createIcons();
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    openBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Close on overlay click
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
+    });
+
+    // AJAX submission
+    sessionForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = sessionForm.querySelector('.session-submit-btn');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> Envoi en cours...';
+        lucide.createIcons();
+
+        try {
+            const formData = new FormData(sessionForm);
+            const response = await fetch(sessionForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                sessionForm.style.display = 'none';
+                sessionSuccess.classList.remove('hidden');
+                lucide.createIcons();
+            } else {
+                alert('Une erreur est survenue. Veuillez réessayer.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                lucide.createIcons();
+            }
+        } catch (err) {
+            alert('Erreur de connexion. Vérifiez votre internet.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            lucide.createIcons();
+        }
+    });
+
     // Initial draw and resize listener
     setTimeout(drawTimeline, 500); 
     window.addEventListener('resize', drawTimeline);

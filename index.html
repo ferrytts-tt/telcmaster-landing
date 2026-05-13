@@ -89,6 +89,10 @@
                     <i data-lucide="play-circle"></i>
                     Voir la démo
                 </a>
+                <button id="openSessionModal" class="cta-button session-cta">
+                    <i data-lucide="calendar-check"></i>
+                    Réserver ma session privée
+                </button>
             </div>
 
             <!-- Trust Indicators -->
@@ -106,7 +110,7 @@
     <section class="steps-section fade-in" style="position: relative; overflow: hidden;">
         <!-- Spline 3D Background -->
         <div class="spline-bg-container">
-            <iframe src='https://my.spline.design/reactiveorb-SYrX9IUNyC27AiZ7mtzHopAT/' frameborder='0' width='100%' height='100%'></iframe>
+            <iframe src="https://my.spline.design/shapethevibe-fFtTfViyfSO8dhA1HG01WeNw-iPQ/" frameborder="0" width="100%" height="100%"></iframe>
             <div class="spline-overlay"></div>
         </div>
 
@@ -921,6 +925,52 @@
         // Initialize Lucide icons
         lucide.createIcons();
     </script>
+
+    <!-- Session Modal -->
+    <div id="sessionModal" class="session-modal-overlay" aria-hidden="true">
+        <div class="session-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button id="closeSessionModal" class="modal-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-icon">
+                <i data-lucide="calendar-check"></i>
+            </div>
+            <h2 id="modalTitle">Réserver ma session privée</h2>
+            <p>Entrez vos coordonnées et notre équipe vous contactera pour organiser votre session de préparation personnalisée.</p>
+            
+            <form id="sessionForm" class="session-form" action="https://formspree.io/f/xkoyeyrr" method="POST">
+                <input type="hidden" name="_subject" value="Nouvelle demande de session privée TELCMASTER">
+                <input type="hidden" name="_replyto" value="telcmaster@gmail.com">
+                
+                <div class="form-group">
+                    <label for="sessionName">Votre nom complet</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="user"></i>
+                        <input type="text" id="sessionName" name="name" placeholder="Ex: Ahmed Ben Ali" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sessionEmail">Votre adresse e-mail</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="mail"></i>
+                        <input type="email" id="sessionEmail" name="email" placeholder="Ex: ahmed@email.com" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="session-submit-btn">
+                    <i data-lucide="send"></i>
+                    Envoyer ma demande
+                </button>
+            </form>
+
+            <div id="sessionSuccess" class="session-success hidden">
+                <div class="success-icon"><i data-lucide="check-circle"></i></div>
+                <h3>Demande envoyée !</h3>
+                <p>Nous avons reçu votre demande. Notre équipe vous contactera très prochainement pour confirmer votre session privée.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
