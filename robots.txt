@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://telcmaster.netlify.app/sitemap.xml
+Sitemap: https://telcmaster.com/sitemap.xml
