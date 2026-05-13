@@ -126,6 +126,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+    <!-- ═══ GEOLOCATION BLOCK (TN, DZ, MA only) ═══ -->
+    <style id="geo-hide">body { display: none !important; }</style>
+    <script>
+        (async function() {
+            try {
+                const response = await fetch('https://1.1.1.1/cdn-cgi/trace');
+                const text = await response.text();
+                const data = Object.fromEntries(text.trim().split('\n').map(line => line.split('=')));
+                const allowed = ['TN', 'DZ', 'MA']; // Tunisia, Algeria, Morocco
+                
+                if (data.loc && !allowed.includes(data.loc)) {
+                    document.documentElement.innerHTML = `
+                        <head>
+                            <title>Accès Restreint | TELCMASTER</title>
+                            <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+                        </head>
+                        <body style="background: #0f141e; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: 'Outfit', sans-serif; text-align: center; margin: 0;">
+                            <div style="padding: 40px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); max-width: 500px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F687B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                                <h2 style="color: #F687B3; margin-top: 0; font-size: 24px;">Accès Restreint</h2>
+                                <p style="color: #a0aec0; line-height: 1.6; font-size: 16px;">Désolé, la plateforme TELCMASTER n'est actuellement disponible qu'en <b>Tunisie</b>, en <b>Algérie</b> et au <b>Maroc</b>.</p>
+                            </div>
+                        </body>
+                    `;
+                } else {
+                    document.getElementById('geo-hide').remove();
+                }
+            } catch (e) {
+                // Failsafe: if trace fails, allow access
+                const styleEl = document.getElementById('geo-hide');
+                if (styleEl) styleEl.remove();
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- Top Announcement Bar -->
