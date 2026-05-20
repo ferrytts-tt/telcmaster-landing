@@ -6,9 +6,15 @@
 
     <url>
         <loc>https://telcmaster.com/</loc>
-        <lastmod>2026-05-17</lastmod>
+        <lastmod>2026-05-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://telcmaster.com/ar.html</loc>
+        <lastmod>2026-05-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
 
 </urlset>
