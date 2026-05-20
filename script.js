@@ -338,6 +338,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 8. Mobile Menu Toggle Logic
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuToggle.querySelector('i');
+            if (icon) {
+                if (navLinks.classList.contains('active')) {
+                    icon.setAttribute('data-lucide', 'x');
+                } else {
+                    icon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons();
+            }
+        });
+        
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    icon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            });
+        });
+    }
+
+    // Scroll listener for sticky header
+    const mainHeader = document.querySelector('.main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainHeader?.classList.add('scrolled');
+        } else {
+            mainHeader?.classList.remove('scrolled');
+        }
+    });
+
     // Initial draw and resize listener
     setTimeout(drawTimeline, 500); 
     window.addEventListener('resize', drawTimeline);
