@@ -338,6 +338,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 7.5 Demo Video Modal Logic
+    const openDemoBtn = document.getElementById('openDemoModal');
+    const closeDemoBtn = document.getElementById('closeDemoModal');
+    const demoModal = document.getElementById('demoModal');
+    const demoVideo = document.getElementById('demoVideo');
+
+    const openDemo = (e) => {
+        if (e) e.preventDefault();
+        demoModal?.classList.add('active');
+        demoModal?.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (demoVideo) {
+            demoVideo.play().catch(error => {
+                console.log("Video play was prevented:", error);
+            });
+        }
+        lucide.createIcons();
+    };
+
+    const closeDemo = () => {
+        demoModal?.classList.remove('active');
+        demoModal?.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (demoVideo) {
+            demoVideo.pause();
+            demoVideo.currentTime = 0;
+        }
+    };
+
+    openDemoBtn?.addEventListener('click', openDemo);
+    closeDemoBtn?.addEventListener('click', closeDemo);
+
+    // Close on overlay click
+    demoModal?.addEventListener('click', (e) => {
+        if (e.target === demoModal) closeDemo();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && demoModal?.classList.contains('active')) closeDemo();
+    });
+
     // 8. Mobile Menu Toggle Logic
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
