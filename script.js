@@ -77,30 +77,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Parallax effect & Scroll Progress
     const backToTop = document.getElementById('backToTop');
     const progressPath = document.getElementById('progressPath');
+    const heroGlow = document.querySelector('.hero-glow');
     const pathLength = 138.23; // Circumference for r=22 (2 * PI * 22)
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        
-        // Parallax hero glow
-        const heroGlow = document.querySelector('.hero-glow');
-        if (heroGlow) {
-            heroGlow.style.transform = `translateX(-50%) translateY(${scrolled * 0.3}px)`;
-        }
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                
+                // Parallax hero glow
+                if (heroGlow) {
+                    heroGlow.style.transform = `translateX(-50%) translateY(${scrolled * 0.3}px)`;
+                }
 
-        // Back to Top Progress
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = scrolled / scrollHeight;
-        
-        if (progressPath) {
-            const offset = pathLength - (progress * pathLength);
-            progressPath.style.strokeDashoffset = offset;
-        }
+                // Back to Top Progress
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = scrollHeight > 0 ? scrolled / scrollHeight : 0;
+                
+                if (progressPath) {
+                    const offset = pathLength - (progress * pathLength);
+                    progressPath.style.strokeDashoffset = offset;
+                }
 
-        if (scrolled > 300) {
-            backToTop?.classList.add('visible');
-        } else {
-            backToTop?.classList.remove('visible');
+                if (scrolled > 300) {
+                    backToTop?.classList.add('visible');
+                } else {
+                    backToTop?.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 
