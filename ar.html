@@ -1117,12 +1117,33 @@
             <button id="closeDemoModal" class="modal-close" aria-label="إغلاق">
                 <i data-lucide="x"></i>
             </button>
-            <div class="video-container">
-                <video id="demoVideo" controls playsinline preload="metadata">
-                    <source src="video1.mov" type="video/mp4">
-                    <source src="video1.mov" type="video/quicktime">
-                    متصفحك لا يدعم تشغيل هذا الفيديو.
-                </video>
+            <div class="demo-modal-body">
+                <div class="video-section">
+                    <div class="video-container">
+                        <video id="demoVideo" controls playsinline preload="metadata">
+                            <source src="video1.mov" type="video/mp4">
+                            متصفحك لا يدعم تشغيل هذا الفيديو.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 id="currentVideoTitle">1- التسجيل</h3>
+                    </div>
+                </div>
+                <div class="playlist-section">
+                    <div class="playlist-header">
+                        <h4>فيديوهات توضيحية</h4>
+                    </div>
+                    <div class="playlist-items" id="playlistItems">
+                        <button type="button" class="playlist-item active" data-src="video1.mov" data-title="1- التسجيل">
+                            <span class="play-icon"><i data-lucide="play-circle"></i></span>
+                            <span class="item-title">1- التسجيل</span>
+                        </button>
+                        <button type="button" class="playlist-item" data-src="telcmaster paiement.mov" data-title="2- الدفع - إي دينار سمارت">
+                            <span class="play-icon"><i data-lucide="play-circle"></i></span>
+                            <span class="item-title">2- الدفع - إي دينار سمارت</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

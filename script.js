@@ -350,6 +350,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeDemoBtn = document.getElementById('closeDemoModal');
     const demoModal = document.getElementById('demoModal');
     const demoVideo = document.getElementById('demoVideo');
+    const playlistItems = document.querySelectorAll('.playlist-item');
+    const currentVideoTitle = document.getElementById('currentVideoTitle');
+
+    // Handle playlist items click to change video source
+    playlistItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const src = item.getAttribute('data-src');
+            const title = item.getAttribute('data-title');
+
+            if (!src) return;
+
+            // Update active state in UI
+            playlistItems.forEach(el => el.classList.remove('active'));
+            item.classList.add('active');
+
+            // Update current video title text
+            if (currentVideoTitle && title) {
+                currentVideoTitle.textContent = title;
+            }
+
+            // Change video source and load/play
+            if (demoVideo) {
+                demoVideo.src = src;
+                demoVideo.load();
+                demoVideo.play().catch(error => {
+                    console.log("Video play was prevented on playlist click:", error);
+                });
+            }
+        });
+    });
 
     const openDemo = (e) => {
         if (e) e.preventDefault();
@@ -358,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
         if (demoVideo) {
             demoVideo.play().catch(error => {
-                console.log("Video play was prevented:", error);
+                console.log("Video play was prevented on open:", error);
             });
         }
         lucide.createIcons();
@@ -370,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
         if (demoVideo) {
             demoVideo.pause();
-            demoVideo.currentTime = 0;
+            // Optional: reset to start if desired, or keep progress
         }
     };
 
