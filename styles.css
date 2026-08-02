@@ -3069,4 +3069,93 @@ html[lang="ar"] .warning-card-bg-emoji {
     }
 }
 
+/* ═══════════════════════════════════════
+   ARABIC (RTL) & MOBILE ENHANCEMENTS
+════════════════════════════════════════ */
+html[lang="ar"] {
+    font-family: 'Cairo', 'Outfit', sans-serif;
+}
+
+html[lang="ar"] body {
+    font-family: 'Cairo', 'Outfit', sans-serif;
+}
+
+html[lang="ar"] h1, 
+html[lang="ar"] h2, 
+html[lang="ar"] h3, 
+html[lang="ar"] h4, 
+html[lang="ar"] .logo-text, 
+html[lang="ar"] .cta-button, 
+html[lang="ar"] .section-tag {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* RTL layout fixes for hover animations, borders and arrows */
+html[lang="ar"] .problem-card:hover {
+    transform: translateX(-10px);
+}
+
+html[lang="ar"] .warning-footer {
+    border-left: none;
+    border-right: 4px solid var(--accent-magenta);
+}
+
+html[lang="ar"] .step-tip {
+    border-left: none;
+    border-right: 3px solid var(--accent-blue);
+}
+
+html[lang="ar"] .step-list li {
+    padding-left: 0;
+    padding-right: 24px;
+}
+
+html[lang="ar"] .step-list li::before {
+    content: '←';
+}
+
+html[lang="ar"] .step-list.check li::before {
+    content: '✔';
+}
+
+html[lang="ar"] .problem-card {
+    text-align: right;
+}
+
+html[lang="ar"] .qualify-card {
+    text-align: right;
+}
+
+html[lang="ar"] .failure-cost-card {
+    text-align: right;
+}
+
+html[lang="ar"] .comparison-card {
+    text-align: right;
+}
+
+html[lang="ar"] .urgency-card {
+    text-align: right;
+}
+
+html[lang="ar"] .imagination-list {
+    text-align: right;
+}
+
+html[lang="ar"] .solution-card {
+    text-align: center;
+}
+
+/* Mobile RTL Nav Links Fix */
+@media (max-width: 992px) {
+    html[lang="ar"] .nav-links {
+        left: auto;
+        right: -100%;
+    }
+    html[lang="ar"] .nav-links.active {
+        right: 0;
+        left: auto;
+    }
+}
+
 
