@@ -3405,6 +3405,22 @@ html[lang="ar"] .faq-geo-answer {
     border-color: var(--accent-blue);
 }
 
+.flag-img {
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    vertical-align: middle;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.currency-header .flag-img {
+    width: 26px;
+    height: 19px;
+}
+
 
 
 
