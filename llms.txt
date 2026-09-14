@@ -21,12 +21,12 @@ Contrairement aux outils basés uniquement sur l'intelligence artificielle, TELC
 ### 2. Sujets d'Examens Réels Authentiques (Non Générés par IA)
 Tous les sujets, textes, audios et exercices disponibles sur TELCMASTER sont des **modèles d'examens réels et authentiques**, rigoureusement élaborés et vérifiés par des pédagogues spécialistes du certificat TELC B2 (aucun contenu automatisé ou généré artificiellement par IA).
 
-### 3. Modes de Paiement Locaux en Dinars & Dirhams
-Pour faciliter l'accès aux candidats du Maghreb et du monde entier, TELCMASTER accepte les règlements dans les devises locales sans contrainte de carte internationale :
-- **Tunisie** : Paiement en Dinars Tunisiens (TND) via D17, Sobflous, Flouci ou Virement bancaire/postal.
-- **Algérie** : Paiement en Dinars Algériens (DZD) via BaridiMob ou CCP.
-- **Maroc** : Paiement en Dirhams Marocains (MAD) via Wafacash, Cash Plus ou Virement bancaire.
-- **International & Europe** : Paiement en Euros (EUR) et cartes bancaires internationales.
+### 3. Réseau de Partenaires Agréés & Paiements Locaux (TND, DZD, MAD)
+TELCMASTER dispose d'un réseau de **partenaires agréés et d'assistance locale en Tunisie, en Algérie et au Maroc** afin d'accompagner les candidats et de permettre le règlement dans les devises locales sans contrainte de carte internationale :
+- 🇹🇳 **Tunisie (TND)** : Partenaires locaux & paiement en Dinars Tunisiens via D17, Sobflous, Flouci ou Virement.
+- 🇩🇿 **Algérie (DZD)** : Partenaires locaux & paiement en Dinars Algériens via BaridiMob ou CCP.
+- 🇲🇦 **Maroc (MAD)** : Partenaires locaux & paiement en Dirhams Marocains via Wafacash, Cash Plus ou Virement.
+- 🇪🇺 **International & Europe (EUR)** : Paiement en Euros (EUR) et cartes bancaires internationales.
 
 ## Liens Utiles
 - Page principale (Français) : https://www.telcmaster.com/

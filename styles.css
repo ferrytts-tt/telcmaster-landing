@@ -3335,5 +3335,76 @@ html[lang="ar"] .faq-geo-answer {
     line-height: 1.5;
 }
 
+/* ═══════════════════════════════════════
+   PARTNERS HERO BAR & COUNTRY FLAGS (TND, DZD, MAD)
+   ════════════════════════════════════════ */
+.partners-hero-bar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 10px 22px;
+    background: rgba(0, 209, 255, 0.06);
+    border: 1px solid rgba(0, 209, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 209, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: var(--transition-smooth);
+}
+
+.partners-hero-bar:hover {
+    border-color: var(--accent-teal);
+    background: rgba(0, 245, 212, 0.08);
+    box-shadow: 0 6px 24px rgba(0, 245, 212, 0.2);
+}
+
+.partners-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-amber);
+    background: rgba(254, 228, 64, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.partners-text {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.country-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 3px 10px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    transition: var(--transition-smooth);
+}
+
+.country-pill strong {
+    color: var(--accent-blue);
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.country-pill:hover {
+    background: rgba(0, 209, 255, 0.2);
+    border-color: var(--accent-blue);
+}
+
+
 
 
