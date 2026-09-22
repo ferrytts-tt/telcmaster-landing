@@ -1,11 +1,36 @@
 User-agent: *
 Allow: /
 
-# Explicit permissions for AI & Search Engine Crawlers
+# ═══ SEARCH ENGINE CRAWLERS ═══
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# ═══ AI & LLM CRAWLERS ═══
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: Google-Extended
@@ -17,6 +42,9 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
@@ -26,13 +54,34 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
 User-agent: DeepSeekBot
 Allow: /
 
-# LLM Information Files
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# ═══ LLM INFORMATION FILES ═══
 # See https://llmstxt.org/ for details
 Allow: /llms.txt
 Allow: /llms-full.txt
 
-# Sitemap
+# ═══ SITEMAP ═══
 Sitemap: https://www.telcmaster.com/sitemap.xml
