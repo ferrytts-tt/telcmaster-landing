@@ -1,0 +1,21 @@
+{
+  "name": "TELCMASTER B2",
+  "short_name": "TELCMASTER",
+  "description": "Plateforme N°1 de préparation au TELC B2",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#274c77",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
