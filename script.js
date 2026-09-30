@@ -406,6 +406,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     selectedDate = cellDate;
                     document.querySelectorAll('.cal-day-cell.selected').forEach(el => el.classList.remove('selected'));
                     dayCell.classList.add('selected');
+
+                    const isTodayClick = selectedDate.getTime() === today.getTime();
+                    const nowH = new Date().getHours();
+                    if (isTodayClick && parseInt(selectedSlot.split(':')[0], 10) <= nowH) {
+                        const firstAvail = TIME_SLOTS.find(s => parseInt(s.split(':')[0], 10) > nowH);
+                        selectedSlot = firstAvail || TIME_SLOTS[0];
+                    }
+
+                    const fullDateStr = formatDateFull(selectedDate);
+                    if (summaryDateText) summaryDateText.textContent = fullDateStr;
+                    if (summaryTimeText) summaryTimeText.textContent = selectedSlot;
+                    if (calSelectedSummary) calSelectedSummary.classList.remove('hidden');
+
                     renderSlots(selectedDate);
                 });
             }
@@ -455,6 +468,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.cal-slot-btn.selected').forEach(b => b.classList.remove('selected'));
                 document.querySelectorAll('.cal-slot-confirm-btn').forEach(b => b.remove());
                 slotBtn.classList.add('selected');
+
+                // Update sidebar summary right away
+                const fullDateStr = formatDateFull(selectedDate);
+                if (summaryDateText) summaryDateText.textContent = fullDateStr;
+                if (summaryTimeText) summaryTimeText.textContent = selectedSlot;
+                if (calSelectedSummary) calSelectedSummary.classList.remove('hidden');
 
                 // Add Cal.com confirmation button
                 const confirmBtn = document.createElement('button');
@@ -554,17 +573,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset to default on modal open
     const initScheduler = () => {
-        viewYear = today.getFullYear();
-        viewMonth = today.getMonth();
+        const now = new Date();
+        const currentHour = now.getHours();
 
-        // Default select tomorrow or today
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        selectedDate = tomorrow;
-        selectedSlot = '08:00 - 09:00';
+        // Check if there are slots remaining today
+        const hasSlotsToday = TIME_SLOTS.some(slot => parseInt(slot.split(':')[0], 10) > currentHour);
+
+        if (hasSlotsToday) {
+            selectedDate = new Date(today);
+            const firstSlot = TIME_SLOTS.find(slot => parseInt(slot.split(':')[0], 10) > currentHour);
+            selectedSlot = firstSlot || TIME_SLOTS[0];
+        } else {
+            const nextDay = new Date(today);
+            nextDay.setDate(nextDay.getDate() + 1);
+            selectedDate = nextDay;
+            selectedSlot = TIME_SLOTS[0];
+        }
+
+        // Ensure viewYear and viewMonth match selectedDate
+        viewYear = selectedDate.getFullYear();
+        viewMonth = selectedDate.getMonth();
 
         renderCalendar();
         renderSlots(selectedDate);
+
+        // Update sidebar summary right away
+        const fullDateStr = formatDateFull(selectedDate);
+        if (summaryDateText) summaryDateText.textContent = fullDateStr;
+        if (summaryTimeText) summaryTimeText.textContent = selectedSlot;
+        if (calSelectedSummary) calSelectedSummary.classList.remove('hidden');
 
         // Reset views
         if (calStepPicker) calStepPicker.classList.add('active');
@@ -576,7 +613,6 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionSuccess.classList.remove('active');
             sessionSuccess.classList.add('hidden');
         }
-        if (calSelectedSummary) calSelectedSummary.classList.add('hidden');
     };
 
     const openModal = () => {

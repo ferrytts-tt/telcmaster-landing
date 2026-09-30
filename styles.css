@@ -36,6 +36,10 @@
     font-family: 'Outfit', sans-serif;
 }
 
+.hidden {
+    display: none !important;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -2475,12 +2479,13 @@ p.section-sub {
     visibility: visible;
 }
 
+.session-modal,
 .session-modal.cal-modal {
     background: linear-gradient(145deg, #0b0f17, #111827);
     border: 1px solid rgba(155, 93, 229, 0.35);
     border-radius: 24px;
-    padding: 0;
-    max-width: 940px;
+    padding: 0 !important;
+    max-width: 940px !important;
     width: 100%;
     position: relative;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(155, 93, 229, 0.15);
@@ -2490,6 +2495,7 @@ p.section-sub {
     overflow: hidden;
 }
 
+.session-modal-overlay.active .session-modal,
 .session-modal-overlay.active .session-modal.cal-modal {
     transform: translateY(0) scale(1);
 }
@@ -2653,12 +2659,12 @@ p.section-sub {
 }
 
 .cal-step-view {
-    display: none;
-    animation: calFadeIn 0.25s ease-out;
+    display: none !important;
 }
 
 .cal-step-view.active {
-    display: block;
+    display: block !important;
+    animation: calFadeIn 0.25s ease-out;
 }
 
 @keyframes calFadeIn {
