@@ -2537,10 +2537,20 @@ p.section-sub {
 .cal-sidebar {
     background: rgba(10, 14, 22, 0.85);
     border-right: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 32px 24px;
+    padding: 26px 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
+    overflow-y: auto;
+}
+
+.cal-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cal-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
 }
 
 .cal-brand {
@@ -2583,9 +2593,40 @@ p.section-sub {
 
 .cal-desc {
     color: var(--text-muted);
-    font-size: 0.86rem;
-    line-height: 1.55;
+    font-size: 0.82rem;
+    line-height: 1.5;
     margin: 0;
+}
+
+.cal-desc p {
+    margin: 0 0 8px;
+    color: #e2e8f0;
+}
+
+.cal-desc p strong {
+    color: #fff;
+}
+
+.cal-desc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cal-desc-list li {
+    font-size: 0.79rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.cal-desc-highlight {
+    color: var(--accent-blue) !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin: 0 !important;
 }
 
 .cal-meta-list {
