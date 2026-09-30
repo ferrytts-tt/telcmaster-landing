@@ -3288,6 +3288,19 @@ html[lang="ar"] .cal-slots-header {
     text-align: right;
 }
 
+html[lang="ar"] .cal-slot-btn {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .cal-slot-btn span,
+html[lang="ar"] .cal-summary-time span,
+html[lang="ar"] #formRecapTime,
+html[lang="ar"] #confTime {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    display: inline-block;
+}
+
 /* Responsive adjustments */
 @media (max-width: 860px) {
     .cal-wrapper {
