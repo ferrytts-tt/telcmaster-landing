@@ -1508,48 +1508,219 @@
         </div>
     </div>
 
-    <!-- Session Modal -->
+    <!-- Session Modal (Cal.com Style - Arabic) -->
     <div id="sessionModal" class="session-modal-overlay" aria-hidden="true">
-        <div class="session-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="session-modal cal-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <button id="closeSessionModal" class="modal-close" aria-label="إغلاق">
                 <i data-lucide="x"></i>
             </button>
-            <div class="modal-icon">
-                <i data-lucide="calendar-check"></i>
-            </div>
-            <h2 id="modalTitle">احجز جلستي الخاصة</h2>
-            <p>أدخل بياناتك وسيتواصل معك فريقنا لتنظيم جلسة تحضير شخصية مخصصة لك.</p>
             
-            <form id="sessionForm" class="session-form" action="https://formspree.io/f/xkoyeyrr" method="POST">
-                <input type="hidden" name="_subject" value="طلب جلسة خاصة جديدة - TELCMASTER">
-                <input type="hidden" name="_replyto" value="telcmaster@gmail.com">
-                
-                <div class="form-group">
-                    <label for="sessionName">اسمك الكامل</label>
-                    <div class="input-wrapper">
-                        <i data-lucide="user"></i>
-                        <input type="text" id="sessionName" name="name" placeholder="مثال: أحمد بن علي" required>
+            <div class="cal-wrapper">
+                <!-- Left Sidebar: Event info -->
+                <aside class="cal-sidebar">
+                    <div class="cal-brand">
+                        <div class="cal-brand-icon">
+                            <i data-lucide="calendar-check"></i>
+                        </div>
+                        <div class="cal-brand-info">
+                            <span class="cal-brand-tag">TELCMASTER</span>
+                            <h2 id="modalTitle" class="cal-event-title">جلسة خاصة للتحضير لـ TELC B2</h2>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="sessionEmail">عنوان بريدك الإلكتروني</label>
-                    <div class="input-wrapper">
-                        <i data-lucide="mail"></i>
-                        <input type="email" id="sessionEmail" name="email" placeholder="مثال: ahmed@email.com" required>
+
+                    <p class="cal-desc">جلسة تدريب فردية خاصة 1-on-1 مع أستاذ خبير لتقييم مستواك الشفوي وتصحيح أخطائك وضمان نجاحك في امتحان TELC B2.</p>
+
+                    <div class="cal-meta-list">
+                        <div class="cal-meta-item">
+                            <i data-lucide="clock"></i>
+                            <span><strong>المدة :</strong> 60 دقيقة</span>
+                        </div>
+                        <div class="cal-meta-item">
+                            <i data-lucide="video"></i>
+                            <span><strong>المكان :</strong> مكالمة فيديو Google Meet</span>
+                        </div>
+                        <div class="cal-meta-item cal-tz-badge">
+                            <i data-lucide="globe"></i>
+                            <span><strong>المنطقة الزمنية :</strong> توقيت تونس (GMT+1)</span>
+                        </div>
                     </div>
+
+                    <!-- Dynamic selection summary pill -->
+                    <div id="calSelectedSummary" class="cal-selected-summary hidden">
+                        <div class="cal-summary-label">الموعد المحدد :</div>
+                        <div class="cal-summary-date"><i data-lucide="calendar"></i> <span id="summaryDateText">-</span></div>
+                        <div class="cal-summary-time"><i data-lucide="clock"></i> <span id="summaryTimeText">-</span></div>
+                        <div class="cal-summary-tz"><i data-lucide="map-pin"></i> بتوقيت تونس (GMT+1)</div>
+                    </div>
+                </aside>
+
+                <!-- Right Main Content -->
+                <div class="cal-content">
+                    
+                    <!-- Step 1: Calendar & Slot Selection -->
+                    <div id="calStepPicker" class="cal-step-view active">
+                        <div class="cal-step-header">
+                            <h3>اختر اليوم والتوقيت المناسب</h3>
+                            <p>حدد الموعد الأنسب لك في الجدول (بتوقيت تونس)</p>
+                        </div>
+
+                        <div class="cal-picker-grid">
+                            <!-- Calendar Column -->
+                            <div class="cal-calendar-col">
+                                <div class="cal-month-nav">
+                                    <h4 id="calMonthYear">أكتوبر 2026</h4>
+                                    <div class="cal-nav-btns">
+                                        <button type="button" id="calPrevMonth" class="cal-nav-btn" aria-label="الشهر السابق">
+                                            <i data-lucide="chevron-right"></i>
+                                        </button>
+                                        <button type="button" id="calNextMonth" class="cal-nav-btn" aria-label="الشهر القادم">
+                                            <i data-lucide="chevron-left"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="cal-weekdays">
+                                    <span>إثن</span><span>ثلا</span><span>أرب</span><span>خمي</span><span>جمع</span><span>سبت</span><span>أحد</span>
+                                </div>
+                                <div id="calDaysGrid" class="cal-days-grid">
+                                    <!-- Rendered dynamically via JS -->
+                                </div>
+                            </div>
+
+                            <!-- Time Slots Column -->
+                            <div class="cal-slots-col">
+                                <div class="cal-slots-header">
+                                    <span id="calSelectedDateLabel">اختر يوماً من التقويم</span>
+                                    <span class="cal-tz-pill"><i data-lucide="globe"></i> تونس (GMT+1)</span>
+                                </div>
+                                <div id="calSlotsList" class="cal-slots-list">
+                                    <!-- Rendered dynamically via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Candidate Info Form -->
+                    <div id="calStepForm" class="cal-step-view hidden">
+                        <div class="cal-step-header">
+                            <button type="button" id="calBackToPicker" class="cal-back-btn">
+                                <i data-lucide="arrow-right"></i> تغيير اليوم أو التوقيت
+                            </button>
+                            <h3>بياناتك الشخصية</h3>
+                            <p>أدخل بياناتك لتأكيد حجز جلستك الخاصة.</p>
+                        </div>
+
+                        <div class="cal-recap-banner">
+                            <div class="cal-recap-icon"><i data-lucide="calendar-check"></i></div>
+                            <div class="cal-recap-info">
+                                <div id="formRecapDate" class="cal-recap-date">-</div>
+                                <div id="formRecapTime" class="cal-recap-time">- (بتوقيت تونس، GMT+1)</div>
+                            </div>
+                        </div>
+
+                        <form id="sessionForm" class="session-form cal-form" action="https://formspree.io/f/xkoyeyrr" method="POST">
+                            <input type="hidden" id="formSubject" name="_subject" value="طلب حجز جلسة خاصة جديدة - TELCMASTER">
+                            <input type="hidden" name="_replyto" value="telcmaster@gmail.com">
+                            <input type="hidden" id="formSelectedDate" name="تاريخ الموعد" value="">
+                            <input type="hidden" id="formSelectedTime" name="توقيت الجلسة" value="">
+                            <input type="hidden" id="formSelectedTz" name="المنطقة الزمنية" value="تونس (GMT+1)">
+
+                            <div class="form-group">
+                                <label for="sessionName">اسمك الكامل <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="user"></i>
+                                    <input type="text" id="sessionName" name="name" placeholder="مثال: أحمد بن علي" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sessionEmail">عنوان بريدك الإلكتروني <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="mail"></i>
+                                    <input type="email" id="sessionEmail" name="email" placeholder="مثال: ahmed@email.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sessionPhone">رقم الواتساب أو الهاتف <span class="optional-tag">(مستحسن لإرسال رابط Google Meet)</span></label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="phone"></i>
+                                    <input type="tel" id="sessionPhone" name="phone" placeholder="مثال: +216 20 123 456">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sessionNotes">هدفك أو أي ملاحظة تريد التركيز عليها <span class="optional-tag">(اختياري)</span></label>
+                                <div class="input-wrapper textarea-wrapper">
+                                    <i data-lucide="message-square"></i>
+                                    <textarea id="sessionNotes" name="notes" rows="2" placeholder="مثال: التدريب على المحادثة الشفوية Teil 1 & 2 أو موعد الامتحان..."></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="session-submit-btn cal-confirm-btn">
+                                <i data-lucide="check-circle"></i>
+                                <span id="submitBtnText">تأكيد حجز الموعد</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Step 3: Success Confirmation -->
+                    <div id="sessionSuccess" class="cal-step-view cal-success-view hidden">
+                        <div class="cal-success-card">
+                            <div class="success-icon-pulse">
+                                <i data-lucide="check-circle-2"></i>
+                            </div>
+                            <h3>تم تأكيد موعدك بنجاح!</h3>
+                            <p class="cal-success-subtitle">تم استلام طلبك وسيتم إرسال رسالة تأكيد عبر البريد الإلكتروني.</p>
+
+                            <div class="cal-confirmation-box">
+                                <div class="conf-item">
+                                    <i data-lucide="calendar"></i>
+                                    <div>
+                                        <div class="conf-label">التاريخ</div>
+                                        <div id="confDate" class="conf-val">-</div>
+                                    </div>
+                                </div>
+                                <div class="conf-item">
+                                    <i data-lucide="clock"></i>
+                                    <div>
+                                        <div class="conf-label">التوقيت (تونس GMT+1)</div>
+                                        <div id="confTime" class="conf-val">-</div>
+                                    </div>
+                                </div>
+                                <div class="conf-item">
+                                    <i data-lucide="video"></i>
+                                    <div>
+                                        <div class="conf-label">مكالمة الفيديو</div>
+                                        <div class="conf-val">Google Meet (سيصلك الرابط عبر الإيميل / واتساب)</div>
+                                    </div>
+                                </div>
+                                <div class="conf-item">
+                                    <i data-lucide="user"></i>
+                                    <div>
+                                        <div class="conf-label">المترشح</div>
+                                        <div id="confCandidate" class="conf-val">-</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cal-success-actions">
+                                <a id="btnGoogleCalendar" href="#" target="_blank" rel="noopener noreferrer" class="cal-action-btn cal-gcal-btn">
+                                    <i data-lucide="calendar-plus"></i>
+                                    إضافة إلى Google Calendar
+                                </a>
+                                <button type="button" id="btnDownloadIcs" class="cal-action-btn cal-ics-btn">
+                                    <i data-lucide="download"></i>
+                                    تحميل تذكير التقويم (.ics)
+                                </button>
+                                <button type="button" id="btnCloseSuccessModal" class="cal-action-btn cal-close-action-btn">
+                                    إغلاق
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
-                <button type="submit" class="session-submit-btn">
-                    <i data-lucide="send"></i>
-                    إرسال طلبي
-                </button>
-            </form>
-
-            <div id="sessionSuccess" class="session-success hidden">
-                <div class="success-icon"><i data-lucide="check-circle"></i></div>
-                <h3>تم إرسال طلبك!</h3>
-                <p>استلمنا طلبك. سيتواصل معك فريقنا قريباً جداً لتأكيد جلستك الخاصة.</p>
             </div>
         </div>
     </div>

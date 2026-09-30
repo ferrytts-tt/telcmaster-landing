@@ -276,17 +276,314 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cursorRing) cursorRing.style.opacity = '0';
     });
 
-    // 7. Session Modal Logic
+    // 7. Session Modal Logic (Cal.com Live Scheduling System)
     const openBtn = document.getElementById('openSessionModal');
     const closeBtn = document.getElementById('closeSessionModal');
     const modal = document.getElementById('sessionModal');
     const sessionForm = document.getElementById('sessionForm');
     const sessionSuccess = document.getElementById('sessionSuccess');
 
+    // Cal.com Components
+    const calStepPicker = document.getElementById('calStepPicker');
+    const calStepForm = document.getElementById('calStepForm');
+    const calDaysGrid = document.getElementById('calDaysGrid');
+    const calSlotsList = document.getElementById('calSlotsList');
+    const calMonthYear = document.getElementById('calMonthYear');
+    const calPrevMonth = document.getElementById('calPrevMonth');
+    const calNextMonth = document.getElementById('calNextMonth');
+    const calSelectedDateLabel = document.getElementById('calSelectedDateLabel');
+    const calBackToPicker = document.getElementById('calBackToPicker');
+    const formRecapDate = document.getElementById('formRecapDate');
+    const formRecapTime = document.getElementById('formRecapTime');
+    const formSelectedDate = document.getElementById('formSelectedDate');
+    const formSelectedTime = document.getElementById('formSelectedTime');
+    const formSubject = document.getElementById('formSubject');
+    const calSelectedSummary = document.getElementById('calSelectedSummary');
+    const summaryDateText = document.getElementById('summaryDateText');
+    const summaryTimeText = document.getElementById('summaryTimeText');
+
+    // Confirmation screen elements
+    const confDate = document.getElementById('confDate');
+    const confTime = document.getElementById('confTime');
+    const confCandidate = document.getElementById('confCandidate');
+    const btnGoogleCalendar = document.getElementById('btnGoogleCalendar');
+    const btnDownloadIcs = document.getElementById('btnDownloadIcs');
+    const btnCloseSuccessModal = document.getElementById('btnCloseSuccessModal');
+
+    const isArabic = document.documentElement.lang === 'ar';
+
+    const MONTH_NAMES_FR = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    const MONTH_NAMES_AR = ['جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان', 'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+    const WEEKDAY_NAMES_FR = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+    const WEEKDAY_NAMES_AR = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+
+    const TIME_SLOTS = [
+        '08:00 - 09:00',
+        '09:00 - 10:00',
+        '10:00 - 11:00',
+        '11:00 - 12:00',
+        '14:00 - 15:00',
+        '15:00 - 16:00',
+        '16:00 - 17:00',
+        '17:00 - 18:00',
+        '18:00 - 19:00',
+        '19:00 - 20:00',
+        '20:00 - 21:00'
+    ];
+
+    // Calendar state
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let viewYear = today.getFullYear();
+    let viewMonth = today.getMonth();
+    let selectedDate = null;
+    let selectedSlot = null;
+
+    // Helper to format date
+    const formatDateFull = (date) => {
+        if (!date) return '';
+        const dayName = isArabic ? WEEKDAY_NAMES_AR[date.getDay()] : WEEKDAY_NAMES_FR[date.getDay()];
+        const monthName = isArabic ? MONTH_NAMES_AR[date.getMonth()] : MONTH_NAMES_FR[date.getMonth()];
+        const dayNum = date.getDate();
+        const yearNum = date.getFullYear();
+        return `${dayName} ${dayNum} ${monthName} ${yearNum}`;
+    };
+
+    // Helper to render month header and check prev button disabled state
+    const updateMonthHeader = () => {
+        if (!calMonthYear) return;
+        const monthNames = isArabic ? MONTH_NAMES_AR : MONTH_NAMES_FR;
+        calMonthYear.textContent = `${monthNames[viewMonth]} ${viewYear}`;
+
+        if (calPrevMonth) {
+            const isCurrentMonthOrPast = (viewYear < today.getFullYear()) || (viewYear === today.getFullYear() && viewMonth <= today.getMonth());
+            calPrevMonth.disabled = isCurrentMonthOrPast;
+        }
+    };
+
+    // Render calendar grid
+    const renderCalendar = () => {
+        if (!calDaysGrid) return;
+        calDaysGrid.innerHTML = '';
+        updateMonthHeader();
+
+        const firstDayOfMonth = new Date(viewYear, viewMonth, 1);
+        // Adjust for Monday start (0 = Monday, 6 = Sunday)
+        let startingDayIndex = (firstDayOfMonth.getDay() + 6) % 7;
+        const totalDaysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        // Empty cells before day 1
+        for (let i = 0; i < startingDayIndex; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'cal-day-cell empty';
+            calDaysGrid.appendChild(emptyCell);
+        }
+
+        // Day cells
+        for (let day = 1; day <= totalDaysInMonth; day++) {
+            const cellDate = new Date(viewYear, viewMonth, day);
+            cellDate.setHours(0, 0, 0, 0);
+
+            const dayCell = document.createElement('button');
+            dayCell.type = 'button';
+            dayCell.className = 'cal-day-cell';
+            dayCell.textContent = day;
+
+            const isPast = cellDate < today;
+            const isToday = cellDate.getTime() === today.getTime();
+            const isSelected = selectedDate && cellDate.getTime() === selectedDate.getTime();
+
+            if (isPast) {
+                dayCell.classList.add('disabled');
+                dayCell.disabled = true;
+            } else {
+                dayCell.classList.add('available');
+                if (isToday) dayCell.classList.add('today');
+                if (isSelected) dayCell.classList.add('selected');
+
+                dayCell.addEventListener('click', () => {
+                    selectedDate = cellDate;
+                    document.querySelectorAll('.cal-day-cell.selected').forEach(el => el.classList.remove('selected'));
+                    dayCell.classList.add('selected');
+                    renderSlots(selectedDate);
+                });
+            }
+
+            calDaysGrid.appendChild(dayCell);
+        }
+    };
+
+    // Render time slots for chosen date
+    const renderSlots = (date) => {
+        if (!calSlotsList || !date) return;
+        calSlotsList.innerHTML = '';
+
+        if (calSelectedDateLabel) {
+            calSelectedDateLabel.textContent = formatDateFull(date);
+        }
+
+        const now = new Date();
+        const isCurrentDay = date.getTime() === today.getTime();
+        const currentHour = now.getHours();
+
+        let availableSlotCount = 0;
+
+        TIME_SLOTS.forEach(slot => {
+            const startHour = parseInt(slot.split(':')[0], 10);
+
+            // If selected day is today and slot hour is passed in local Tunis time, skip
+            if (isCurrentDay && startHour <= currentHour) {
+                return;
+            }
+
+            availableSlotCount++;
+            const slotItem = document.createElement('div');
+            slotItem.className = 'cal-slot-item';
+
+            const slotBtn = document.createElement('button');
+            slotBtn.type = 'button';
+            slotBtn.className = 'cal-slot-btn';
+            slotBtn.innerHTML = `<i data-lucide="clock"></i> <span>${slot}</span>`;
+
+            if (selectedSlot === slot) {
+                slotBtn.classList.add('selected');
+            }
+
+            slotBtn.addEventListener('click', () => {
+                selectedSlot = slot;
+                document.querySelectorAll('.cal-slot-btn.selected').forEach(b => b.classList.remove('selected'));
+                document.querySelectorAll('.cal-slot-confirm-btn').forEach(b => b.remove());
+                slotBtn.classList.add('selected');
+
+                // Add Cal.com confirmation button
+                const confirmBtn = document.createElement('button');
+                confirmBtn.type = 'button';
+                confirmBtn.className = 'cal-slot-confirm-btn';
+                confirmBtn.innerHTML = isArabic 
+                    ? `<span>متابعة</span> <i data-lucide="arrow-left"></i>`
+                    : `<span>Continuer</span> <i data-lucide="arrow-right"></i>`;
+
+                confirmBtn.addEventListener('click', () => {
+                    goToStepForm();
+                });
+
+                slotItem.appendChild(confirmBtn);
+                lucide.createIcons();
+            });
+
+            slotItem.appendChild(slotBtn);
+            calSlotsList.appendChild(slotItem);
+        });
+
+        if (availableSlotCount === 0) {
+            calSlotsList.innerHTML = `
+                <div class="cal-slots-placeholder">
+                    <i data-lucide="calendar-x"></i>
+                    <p>${isArabic ? 'لا توجد ساعات متاحة اليوم. يرجى اختيار يوم آخر.' : 'Aucun créneau disponible pour cette date. Veuillez choisir un autre jour.'}</p>
+                </div>
+            `;
+        }
+
+        lucide.createIcons();
+    };
+
+    // Transition to Step 2 (Form)
+    const goToStepForm = () => {
+        if (!selectedDate || !selectedSlot) return;
+
+        const fullDateStr = formatDateFull(selectedDate);
+        if (formRecapDate) formRecapDate.textContent = fullDateStr;
+        if (formRecapTime) formRecapTime.textContent = `${selectedSlot} (${isArabic ? 'بتوقيت تونس، GMT+1' : 'Heure de Tunis, GMT+1'})`;
+
+        if (formSelectedDate) formSelectedDate.value = fullDateStr;
+        if (formSelectedTime) formSelectedTime.value = selectedSlot;
+
+        // Update sidebar summary
+        if (summaryDateText) summaryDateText.textContent = fullDateStr;
+        if (summaryTimeText) summaryTimeText.textContent = selectedSlot;
+        if (calSelectedSummary) calSelectedSummary.classList.remove('hidden');
+
+        // Toggle views
+        if (calStepPicker) calStepPicker.classList.remove('active');
+        if (calStepForm) {
+            calStepForm.classList.remove('hidden');
+            calStepForm.classList.add('active');
+        }
+
+        const nameInput = document.getElementById('sessionName');
+        if (nameInput) nameInput.focus();
+
+        lucide.createIcons();
+    };
+
+    // Transition back to Step 1 (Picker)
+    const goToStepPicker = () => {
+        if (calStepForm) {
+            calStepForm.classList.remove('active');
+            calStepForm.classList.add('hidden');
+        }
+        if (calStepPicker) {
+            calStepPicker.classList.add('active');
+        }
+        lucide.createIcons();
+    };
+
+    calBackToPicker?.addEventListener('click', goToStepPicker);
+
+    // Month navigation listeners
+    calPrevMonth?.addEventListener('click', () => {
+        if (viewMonth === 0) {
+            viewMonth = 11;
+            viewYear--;
+        } else {
+            viewMonth--;
+        }
+        renderCalendar();
+    });
+
+    calNextMonth?.addEventListener('click', () => {
+        if (viewMonth === 11) {
+            viewMonth = 0;
+            viewYear++;
+        } else {
+            viewMonth++;
+        }
+        renderCalendar();
+    });
+
+    // Reset to default on modal open
+    const initScheduler = () => {
+        viewYear = today.getFullYear();
+        viewMonth = today.getMonth();
+
+        // Default select tomorrow or today
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        selectedDate = tomorrow;
+        selectedSlot = '08:00 - 09:00';
+
+        renderCalendar();
+        renderSlots(selectedDate);
+
+        // Reset views
+        if (calStepPicker) calStepPicker.classList.add('active');
+        if (calStepForm) {
+            calStepForm.classList.remove('active');
+            calStepForm.classList.add('hidden');
+        }
+        if (sessionSuccess) {
+            sessionSuccess.classList.remove('active');
+            sessionSuccess.classList.add('hidden');
+        }
+        if (calSelectedSummary) calSelectedSummary.classList.add('hidden');
+    };
+
     const openModal = () => {
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        initScheduler();
         lucide.createIcons();
     };
 
@@ -298,6 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     openBtn?.addEventListener('click', openModal);
     closeBtn?.addEventListener('click', closeModal);
+    btnCloseSuccessModal?.addEventListener('click', closeModal);
 
     // Close on overlay click
     modal?.addEventListener('click', (e) => {
@@ -309,14 +607,91 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
     });
 
-    // AJAX submission
+    // Google Calendar & ICS Generator
+    const setupCalendarEvents = (candName, candEmail) => {
+        if (!selectedDate || !selectedSlot) return;
+
+        // Parse slot start & end (e.g. "08:00 - 09:00")
+        const [startTimeStr, endTimeStr] = selectedSlot.split('-').map(s => s.trim());
+        const [startH, startM] = startTimeStr.split(':').map(Number);
+        const [endH, endM] = endTimeStr.split(':').map(Number);
+
+        // Tunis is GMT+1. UTC = Tunis - 1 hour
+        const startUtc = new Date(Date.UTC(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), startH - 1, startM, 0));
+        const endUtc = new Date(Date.UTC(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), endH - 1, endM, 0));
+
+        const pad = (n) => String(n).padStart(2, '0');
+        const formatUtcIso = (d) => `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
+
+        const startIso = formatUtcIso(startUtc);
+        const endIso = formatUtcIso(endUtc);
+
+        const eventTitle = isArabic 
+            ? `جلسة خاصة TELC B2 - TELCMASTER (${candName})`
+            : `Session Privée TELC B2 - TELCMASTER (${candName})`;
+        const eventDesc = isArabic
+            ? `جلسة تحضير فردية خاصة 1-on-1 لامتحان TELC B2 مع TELCMASTER.\nالمترشح: ${candName} (${candEmail})\nالمكان: رابط مكالمة فيديو Google Meet.`
+            : `Session privée de préparation TELC B2 1-on-1 avec TELCMASTER.\nCandidat : ${candName} (${candEmail})\nLieu : Google Meet.`;
+
+        // 1. Google Calendar URL
+        if (btnGoogleCalendar) {
+            btnGoogleCalendar.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startIso}/${endIso}&details=${encodeURIComponent(eventDesc)}&location=Google+Meet`;
+        }
+
+        // 2. ICS File Download
+        if (btnDownloadIcs) {
+            btnDownloadIcs.onclick = () => {
+                const icsContent = [
+                    'BEGIN:VCALENDAR',
+                    'VERSION:2.0',
+                    'PRODID:-//TELCMASTER//Session Booking//FR',
+                    'CALSCALE:GREGORIAN',
+                    'METHOD:PUBLISH',
+                    'BEGIN:VEVENT',
+                    `SUMMARY:${eventTitle}`,
+                    `DESCRIPTION:${eventDesc.replace(/\n/g, '\\n')}`,
+                    'LOCATION:Google Meet',
+                    `DTSTART:${startIso}`,
+                    `DTEND:${endIso}`,
+                    'STATUS:CONFIRMED',
+                    'END:VEVENT',
+                    'END:VCALENDAR'
+                ].join('\r\n');
+
+                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `TELCMASTER-session-${startIso.slice(0, 8)}.ics`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            };
+        }
+    };
+
+    // AJAX Form submission
     sessionForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = sessionForm.querySelector('.session-submit-btn');
         const originalText = submitBtn.innerHTML;
 
+        const candName = document.getElementById('sessionName')?.value || '';
+        const candEmail = document.getElementById('sessionEmail')?.value || '';
+        const fullDateStr = formatDateFull(selectedDate);
+
+        // Update form subject
+        if (formSubject) {
+            formSubject.value = isArabic
+                ? `طلب حجز جلسة خاصة: ${candName} - ${fullDateStr} الساعة ${selectedSlot}`
+                : `Nouvelle réservation RDV: ${candName} - ${fullDateStr} (${selectedSlot})`;
+        }
+
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> Envoi en cours...';
+        submitBtn.innerHTML = isArabic 
+            ? '<i data-lucide="loader-2" class="spin"></i> جاري تأكيد الحجز...'
+            : '<i data-lucide="loader-2" class="spin"></i> Confirmation en cours...';
         lucide.createIcons();
 
         try {
@@ -328,17 +703,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                sessionForm.style.display = 'none';
-                sessionSuccess.classList.remove('hidden');
+                if (calStepForm) {
+                    calStepForm.classList.remove('active');
+                    calStepForm.classList.add('hidden');
+                }
+                if (sessionSuccess) {
+                    sessionSuccess.classList.remove('hidden');
+                    sessionSuccess.classList.add('active');
+                }
+
+                if (confDate) confDate.textContent = fullDateStr;
+                if (confTime) confTime.textContent = selectedSlot;
+                if (confCandidate) confCandidate.textContent = `${candName} (${candEmail})`;
+
+                setupCalendarEvents(candName, candEmail);
                 lucide.createIcons();
             } else {
-                alert('Une erreur est survenue. Veuillez réessayer.');
+                alert(isArabic ? 'حدث خطأ أثناء الإرسال. يرجى إعادة المحاولة.' : 'Une erreur est survenue. Veuillez réessayer.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
                 lucide.createIcons();
             }
         } catch (err) {
-            alert('Erreur de connexion. Vérifiez votre internet.');
+            alert(isArabic ? 'خطأ في الاتصال بالإنترنت. يرجى التحقق من اتصالك.' : 'Erreur de connexion. Vérifiez votre internet.');
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
             lucide.createIcons();
