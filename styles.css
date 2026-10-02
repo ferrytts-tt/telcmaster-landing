@@ -4096,6 +4096,226 @@ html[lang="ar"] .faq-geo-answer {
     height: 19px;
 }
 
+/* ═══════════════════════════════════════
+   MODULES EXAMEN TELC B2 (SEO & VALUE)
+   ════════════════════════════════════════ */
+.modules-section {
+    padding: 90px 0;
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 209, 255, 0.04), transparent 70%);
+}
 
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
 
+.module-card {
+    background: rgba(13, 17, 23, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 28px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
 
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal));
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 209, 255, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 209, 255, 0.1);
+}
+
+.module-card:hover::before {
+    opacity: 1;
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.module-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0, 209, 255, 0.1);
+    border: 1px solid rgba(0, 209, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.module-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-blue);
+}
+
+.module-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(0, 209, 255, 0.12);
+    color: var(--accent-blue);
+    margin-bottom: 6px;
+}
+
+.module-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.35;
+    margin-bottom: 6px;
+}
+
+.module-german-tag {
+    font-size: 0.85rem;
+    color: var(--accent-teal);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.module-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.module-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.module-tag {
+    font-size: 0.78rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    padding: 3px 9px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* ═══════════════════════════════════════
+   TUNISIE FOCUS SECTION
+   ════════════════════════════════════════ */
+.tunisie-section {
+    padding: 85px 0;
+    background: linear-gradient(180deg, rgba(2, 3, 5, 0.8) 0%, rgba(13, 17, 23, 0.6) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tunisie-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: stretch;
+    margin-top: 36px;
+}
+
+@media (max-width: 900px) {
+    .tunisie-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tunisie-card {
+    background: rgba(13, 17, 23, 0.8);
+    border: 1px solid rgba(0, 209, 255, 0.2);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.tunisie-features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.tunisie-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.tunisie-features-list li svg,
+.tunisie-features-list li i {
+    color: var(--accent-teal);
+    flex-shrink: 0;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.tunisie-features-list li strong {
+    color: white;
+}
+
+.tunisie-highlight-box {
+    background: rgba(0, 209, 255, 0.06);
+    border: 1px solid rgba(0, 209, 255, 0.25);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.tunisie-highlight-box h4 {
+    color: var(--accent-blue);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tunisie-highlight-box p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+html[lang="ar"] .module-tags {
+    justify-content: flex-start;
+}
+html[lang="ar"] .module-header {
+    text-align: right;
+}
