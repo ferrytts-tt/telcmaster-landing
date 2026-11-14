@@ -107,9 +107,9 @@
     background: linear-gradient(145deg, rgba(13, 20, 32, 0.85), rgba(7, 10, 16, 0.95));
     border: 1px solid rgba(0, 209, 255, 0.25);
     border-radius: 28px;
-    padding: 40px;
+    padding: 32px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 460px 1fr;
     gap: 36px;
     align-items: center;
     backdrop-filter: var(--glass-blur);
@@ -126,10 +126,11 @@
 }
 
 .featured-visual {
-    height: 100%;
-    min-height: 280px;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1 / 1;
     border-radius: 20px;
-    background: linear-gradient(135deg, #0f2042 0%, #173268 50%, #00d1ff 150%);
+    background: #0a0f18;
     position: relative;
     display: flex;
     align-items: center;
@@ -526,10 +527,12 @@
 @media (max-width: 992px) {
     .featured-card {
         grid-template-columns: 1fr;
-        padding: 30px;
+        padding: 24px;
+        gap: 24px;
     }
     .featured-visual {
-        min-height: 200px;
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
     }
     .blog-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -590,15 +593,36 @@
 .featured-cover-img {
     width: 100%;
     height: 100%;
-    min-height: 280px;
-    max-height: 380px;
-    object-fit: cover;
+    object-fit: contain;
+    background: #0a0f18;
     border-radius: 18px;
     transition: var(--transition-smooth);
     display: block;
 }
 
 .featured-card:hover .featured-cover-img {
+    transform: scale(1.02);
+}
+
+.blog-card-cover {
+    height: 240px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0a0f18;
+}
+
+.blog-card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #0a0f18;
+    transition: var(--transition-smooth);
+}
+
+.blog-card:hover .blog-card-cover img {
     transform: scale(1.03);
 }
 
