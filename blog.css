@@ -185,6 +185,12 @@
     border: 1px solid rgba(0, 245, 212, 0.3);
 }
 
+.tag-officiel {
+    background: rgba(254, 228, 64, 0.12);
+    color: #ffd166;
+    border: 1px solid rgba(254, 228, 64, 0.35);
+}
+
 .featured-title {
     font-size: clamp(1.6rem, 2.3vw, 2.2rem);
     font-weight: 800;

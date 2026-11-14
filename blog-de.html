@@ -86,6 +86,10 @@
                     <i data-lucide="layers" style="width: 16px; height: 16px;"></i>
                     Alle Artikel
                 </button>
+                <button class="filter-btn" data-filter="officiel">
+                    <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                    🏛️ Offizielle Informationen
+                </button>
                 <button class="filter-btn" data-filter="news">
                     <i data-lucide="bell" style="width: 16px; height: 16px;"></i>
                     📢 Neuigkeiten
@@ -113,32 +117,67 @@
             </div>
         </div>
 
-        <!-- ═══ FEATURED ARTICLE (HIGHLIGHT-ARTIKEL) ═══ -->
-        <div class="featured-article-wrap" data-category="conseils">
-            <a href="schreiben-telc-b2-eviter-zero-de.html" class="featured-card">
-                <div class="featured-visual">
-                    <img src="blog-schreiben-telc-b2.jpg" alt="telc B2 Schreiben: Wie Sie 0 oder 3 von 45 Punkten vermeiden" class="featured-cover-img">
+        <!-- ═══ FEATURED ARTICLE (HIGHLIGHT-ARTIKEL : OFFIZIELLE INFOS) ═══ -->
+        <div class="featured-article-wrap" data-category="officiel">
+            <a href="telc-b1-b2-tunesien-deutsche-botschaft-2026-de.html" class="featured-card">
+                <div class="featured-visual" style="background: linear-gradient(135deg, #1a2238 0%, #283048 50%, #ffd166 180%);">
+                    <div style="text-align: center; padding: 20px;">
+                        <i data-lucide="shield-check" class="featured-visual-icon" style="color: #ffd166; font-size: 4.5rem; margin-bottom: 12px;"></i>
+                        <div style="font-weight: 800; color: white; font-size: 1.1rem; letter-spacing: 0.5px;">DEUTSCHE BOTSCHAFT</div>
+                        <div style="color: #ffd166; font-size: 0.85rem; font-weight: 600;">Tunis 2026 · telc B1 & B2</div>
+                    </div>
                 </div>
                 <div class="featured-content">
-                    <span class="tag-badge tag-conseils">
-                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
-                        Tipps & Strategien
+                    <span class="tag-badge tag-officiel">
+                        <i data-lucide="shield-check" style="width: 12px; height: 12px;"></i>
+                        Offizielle Informationen
                     </span>
                     <h2 class="featured-title">
-                        telc B2 Schreiben: Wie Sie 0 oder 3 von 45 Punkten vermeiden und 35 bis 40 Punkte anvisieren
+                        telc B1 und B2 in Tunesien: Wird das Zertifikat 2026 noch von der Deutschen Botschaft anerkannt?
                     </h2>
                     <p class="featured-excerpt">
-                        Stellen Sie sich vor, Sie lesen 9 von 45 Punkten beim Schreiben. Erfahren Sie, warum auswendig gelernte oder KI-generierte Vorlagen scheitern und wie Sie mit einem authentischen Text 35 bis 40 Punkte erreichen.
+                        Sie haben ein telc-Zertifikat oder bereiten sich vor? Das sagen die offiziellen Quellen der Botschaft Tunis ohne Gerüchte: Anerkennung, zugelassene Prüfungszentren, die strikte 1-Jahres-Frist und Plausibilitätsprüfungen.
                     </p>
                     <div class="blog-card-footer">
                         <div class="article-meta">
                             <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 14. Nov 2026</span>
-                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 4 Min. Lesezeit</span>
+                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 6 Min. Lesezeit</span>
                         </div>
-                        <span class="read-more-link">Artikel lesen <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                        <span class="read-more-link">Recherche lesen <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                     </div>
                 </div>
             </a>
+        </div>
+
+        <!-- ═══ GRILLE D'ARTICLES ═══ -->
+        <div class="blog-grid" id="articlesGrid">
+
+            <!-- Carte Article : Tipps Schreiben -->
+            <article class="blog-card" data-category="conseils">
+                <div class="blog-card-cover" style="height: 200px; padding: 0;">
+                    <img src="blog-schreiben-telc-b2.jpg" alt="telc B2 Schreiben" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="blog-card-body">
+                    <span class="tag-badge tag-conseils">
+                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
+                        Tipps & Strategien
+                    </span>
+                    <h3 class="blog-card-title">
+                        telc B2 Schreiben: Wie Sie 0 oder 3 von 45 Punkten vermeiden und 35 bis 40 Punkte anvisieren
+                    </h3>
+                    <p class="blog-card-excerpt">
+                        Stellen Sie sich vor, Sie lesen 9 von 45 Punkten beim Schreiben. Erfahren Sie, warum kopierte und KI-generierte Vorlagen scheitern und wie Sie mit einem authentischen Text 35 bis 40 Punkte erzielen.
+                    </p>
+                    <div class="blog-card-footer">
+                        <div class="article-meta">
+                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> 14. Nov 2026</span>
+                            <span><i data-lucide="clock" style="width: 13px; height: 13px;"></i> 4 Min.</span>
+                        </div>
+                        <a href="schreiben-telc-b2-eviter-zero-de.html" class="read-more-link">Lesen <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
+                    </div>
+                </div>
+            </article>
+
         </div>
 
         <!-- Ankündigung für kommende Artikel -->
