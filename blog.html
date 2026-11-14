@@ -114,9 +114,35 @@
             <div style="min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.85rem;">
                 <span>Espace Publicitaire Advergic (Bannière Leaderboard)</span>
             </div>
+        <!-- ═══ FEATURED ARTICLE (À LA UNE) ═══ -->
+        <div class="featured-article-wrap" data-category="conseils">
+            <a href="schreiben-telc-b2-eviter-zero.html" class="featured-card">
+                <div class="featured-visual">
+                    <i data-lucide="file-text" class="featured-visual-icon"></i>
+                </div>
+                <div class="featured-content">
+                    <span class="tag-badge tag-conseils">
+                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
+                        Conseils & Méthodologie
+                    </span>
+                    <h2 class="featured-title">
+                        Schreiben telc B2 : comment éviter le 0 ou le 3 sur 45 et viser 35 à 40
+                    </h2>
+                    <p class="featured-excerpt">
+                        Imaginez ouvrir vos résultats et lire 9 sur 45 au Schreiben. Découvrez pourquoi tant de candidats échouent à cause de modèles copiés ou générés par IA, et comment atteindre 35 à 40 points avec un texte authentique.
+                    </p>
+                    <div class="blog-card-footer">
+                        <div class="article-meta">
+                            <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 14 Nov 2026</span>
+                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 4 min de lecture</span>
+                        </div>
+                        <span class="read-more-link">Lire l'article <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    </div>
+                </div>
+            </a>
         </div>
 
-        <!-- Articles Grid (Prêt à afficher vos textes) -->
+        <!-- Articles Grid (Prêt à afficher vos prochains textes) -->
         <div class="blog-grid" id="articlesGrid">
 
             <!-- Template Carte 1 : Nouveautés -->
@@ -252,7 +278,7 @@
         }
 
         const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.blog-card');
+        const cards = document.querySelectorAll('.blog-card, .featured-article-wrap');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {

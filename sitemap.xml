@@ -58,6 +58,37 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/blog-ar.html"/>
     </url>
 
+    <!-- Article : Schreiben telc B2 (FR, AR, DE) -->
+    <url>
+        <loc>https://www.telcmaster.com/schreiben-telc-b2-eviter-zero.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-ar.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-de.html"/>
+    </url>
+
+    <url>
+        <loc>https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-ar.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-ar.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-de.html"/>
+    </url>
+
+    <url>
+        <loc>https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-de.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-de.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/schreiben-telc-b2-eviter-zero-ar.html"/>
+    </url>
+
     <!-- Fichiers LLM pour les IA (ChatGPT, Gemini, Claude, Perplexity...) -->
     <url>
         <loc>https://www.telcmaster.com/llms.txt</loc>

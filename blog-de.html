@@ -115,6 +115,34 @@
             </div>
         </div>
 
+        <!-- ═══ FEATURED ARTICLE (HIGHLIGHT-ARTIKEL) ═══ -->
+        <div class="featured-article-wrap" data-category="conseils">
+            <a href="schreiben-telc-b2-eviter-zero-de.html" class="featured-card">
+                <div class="featured-visual">
+                    <i data-lucide="file-text" class="featured-visual-icon"></i>
+                </div>
+                <div class="featured-content">
+                    <span class="tag-badge tag-conseils">
+                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
+                        Tipps & Strategien
+                    </span>
+                    <h2 class="featured-title">
+                        telc B2 Schreiben: Wie Sie 0 oder 3 von 45 Punkten vermeiden und 35 bis 40 Punkte anvisieren
+                    </h2>
+                    <p class="featured-excerpt">
+                        Stellen Sie sich vor, Sie lesen 9 von 45 Punkten beim Schreiben. Erfahren Sie, warum auswendig gelernte oder KI-generierte Vorlagen scheitern und wie Sie mit einem authentischen Text 35 bis 40 Punkte erreichen.
+                    </p>
+                    <div class="blog-card-footer">
+                        <div class="article-meta">
+                            <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 14. Nov 2026</span>
+                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 4 Min. Lesezeit</span>
+                        </div>
+                        <span class="read-more-link">Artikel lesen <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
         <!-- Articles Grid -->
         <div class="blog-grid" id="articlesGrid">
 
@@ -251,7 +279,7 @@
         }
 
         const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.blog-card');
+        const cards = document.querySelectorAll('.blog-card, .featured-article-wrap');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
