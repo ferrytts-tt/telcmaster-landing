@@ -32,15 +32,6 @@
 </head>
 <body dir="rtl">
 
-    <!-- Language Switcher (FR / AR / DE) -->
-    <div class="language-switcher" id="langSwitcher">
-        <a href="blog.html" class="lang-option" title="Français">FR</a>
-        <span class="lang-separator">|</span>
-        <a href="blog-ar.html" class="lang-option active" title="العربية">AR</a>
-        <span class="lang-separator">|</span>
-        <a href="blog-de.html" class="lang-option" title="Deutsch">DE</a>
-    </div>
-
     <!-- Main Sticky Navbar -->
     <header class="main-header">
         <div class="header-container">
@@ -59,6 +50,13 @@
                 <a href="blog-ar.html" class="nav-link active" style="color: var(--accent-blue);">المدونة</a>
             </nav>
             <div class="header-actions">
+                <div class="language-switcher" id="langSwitcher">
+                    <a href="blog.html" class="lang-option" title="Français">FR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="blog-ar.html" class="lang-option active" title="العربية">AR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="blog-de.html" class="lang-option" title="Deutsch">DE</a>
+                </div>
                 <a href="https://telcmaster-app.com/" class="header-cta">ابدأ الآن</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="افتح القائمة">
@@ -119,7 +117,7 @@
         <div class="featured-article-wrap" data-category="conseils">
             <a href="schreiben-telc-b2-eviter-zero-ar.html" class="featured-card">
                 <div class="featured-visual">
-                    <i data-lucide="file-text" class="featured-visual-icon"></i>
+                    <img src="blog-schreiben-telc-b2.jpg" alt="قسم الكتابة telc B2: كيف تتجنب 0 أو 3 من 45" class="featured-cover-img">
                 </div>
                 <div class="featured-content">
                     <span class="tag-badge tag-conseils">
@@ -143,84 +141,10 @@
             </a>
         </div>
 
-        <!-- Articles Grid -->
-        <div class="blog-grid" id="articlesGrid">
-
-            <!-- Template Carte 1 : المستجدات -->
-            <article class="blog-card" data-category="news">
-                <div class="blog-card-cover cover-teal">
-                    <i data-lucide="bell" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-news">
-                        <i data-lucide="bell" style="width: 12px; height: 12px;"></i>
-                        أخبار ومستجدات
-                    </span>
-                    <h3 class="blog-card-title">
-                        آخر تحديثات ومستجدات امتحان TELC B2
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        تعرف على التطورات الأخيرة في نظام الامتحان الرقمي TELC Digi 2.0 ومواعيد الدورات الجديدة في تونس والمغرب العربي.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> نوفمبر 2026</span>
-                        </div>
-                        <a href="article-nouveautes-ar.html" class="read-more-link">اقرأ المزيد <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Template Carte 2 : قصص النجاح -->
-            <article class="blog-card" data-category="success">
-                <div class="blog-card-cover cover-purple">
-                    <i data-lucide="trophy" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-success">
-                        <i data-lucide="trophy" style="width: 12px; height: 12px;"></i>
-                        قصص نجاح
-                    </span>
-                    <h3 class="blog-card-title">
-                        تجارب وقصص نجاح طلابنا الملهمة
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        شهادات حقيقية لطلاب ومهندسين وممرضين نجحوا في امتحان B2 وسافروا إلى ألمانيا لتحقيق أهدافهم المهنية والدراسية.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> نوفمبر 2026</span>
-                        </div>
-                        <a href="article-success-story-ar.html" class="read-more-link">اقرأ المزيد <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Template Carte 3 : نصائح وإرشادات -->
-            <article class="blog-card" data-category="conseils">
-                <div class="blog-card-cover cover-blue">
-                    <i data-lucide="lightbulb" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-conseils">
-                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
-                        نصائح وإرشادات
-                    </span>
-                    <h3 class="blog-card-title">
-                        نصائح الخبراء للتفوق في الشفوي والكتابي
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        منهجية المذاكرة، روابط الجمل (Redemittel) الأساسية، إدارة الوقت، وتجنب الأخطاء الشائعة في أقسام الامتحان.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> نوفمبر 2026</span>
-                        </div>
-                        <a href="article-conseils-ar.html" class="read-more-link">اقرأ المزيد <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
+        <!-- تنبيه المقالات القادمة -->
+        <div class="coming-soon-box">
+            <i data-lucide="sparkles" style="width: 20px; height: 20px; color: var(--accent-blue); vertical-align: middle; margin-left: 8px;"></i>
+            <span>المزيد من المقالات الحصرية (المستجدات وقصص النجاح) سيتم نشرها قريباً جداً!</span>
         </div>
 
         <!-- Emplacement Publicité Advergic (In-Feed) -->

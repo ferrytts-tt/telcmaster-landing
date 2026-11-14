@@ -32,15 +32,6 @@
 </head>
 <body>
 
-    <!-- Language Switcher (FR / AR / DE) -->
-    <div class="language-switcher" id="langSwitcher">
-        <a href="blog.html" class="lang-option" title="Français">FR</a>
-        <span class="lang-separator">|</span>
-        <a href="blog-ar.html" class="lang-option" title="العربية">AR</a>
-        <span class="lang-separator">|</span>
-        <a href="blog-de.html" class="lang-option active" title="Deutsch">DE</a>
-    </div>
-
     <!-- Main Sticky Navbar -->
     <header class="main-header">
         <div class="header-container">
@@ -59,6 +50,13 @@
                 <a href="blog-de.html" class="nav-link active" style="color: var(--accent-blue);">Blog</a>
             </nav>
             <div class="header-actions">
+                <div class="language-switcher" id="langSwitcher">
+                    <a href="blog.html" class="lang-option" title="Français">FR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="blog-ar.html" class="lang-option" title="العربية">AR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="blog-de.html" class="lang-option active" title="Deutsch">DE</a>
+                </div>
                 <a href="https://telcmaster-app.com/" class="header-cta">Jetzt starten</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Menü öffnen">
@@ -119,7 +117,7 @@
         <div class="featured-article-wrap" data-category="conseils">
             <a href="schreiben-telc-b2-eviter-zero-de.html" class="featured-card">
                 <div class="featured-visual">
-                    <i data-lucide="file-text" class="featured-visual-icon"></i>
+                    <img src="blog-schreiben-telc-b2.jpg" alt="telc B2 Schreiben: Wie Sie 0 oder 3 von 45 Punkten vermeiden" class="featured-cover-img">
                 </div>
                 <div class="featured-content">
                     <span class="tag-badge tag-conseils">
@@ -143,84 +141,10 @@
             </a>
         </div>
 
-        <!-- Articles Grid -->
-        <div class="blog-grid" id="articlesGrid">
-
-            <!-- Template Karte 1 : Neuigkeiten -->
-            <article class="blog-card" data-category="news">
-                <div class="blog-card-cover cover-teal">
-                    <i data-lucide="bell" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-news">
-                        <i data-lucide="bell" style="width: 12px; height: 12px;"></i>
-                        Neuigkeiten
-                    </span>
-                    <h3 class="blog-card-title">
-                        Aktuelle Updates & Neuigkeiten zur telc B2 Prüfung
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        Erfahren Sie mehr über das offizielle digitale Prüfungsformat TELC Digi 2.0 und aktuelle Termine in Tunesien und Nordafrika.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> November 2026</span>
-                        </div>
-                        <a href="article-neuigkeiten-de.html" class="read-more-link">Lesen <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Template Karte 2 : Erfolgsgeschichten -->
-            <article class="blog-card" data-category="success">
-                <div class="blog-card-cover cover-purple">
-                    <i data-lucide="trophy" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-success">
-                        <i data-lucide="trophy" style="width: 12px; height: 12px;"></i>
-                        Erfolgsgeschichten
-                    </span>
-                    <h3 class="blog-card-title">
-                        Erfolgsgeschichten: Erfahrungsberichte unserer Absolventen
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        Inspirierende Geschichten von Pflegekräften, Ingenieuren und Studenten, die mit TELCMASTER die B2 Prüfung bestanden haben.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> November 2026</span>
-                        </div>
-                        <a href="article-erfolgsgeschichten-de.html" class="read-more-link">Lesen <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Template Karte 3 : Tipps & Strategien -->
-            <article class="blog-card" data-category="conseils">
-                <div class="blog-card-cover cover-blue">
-                    <i data-lucide="lightbulb" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-conseils">
-                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
-                        Tipps & Strategien
-                    </span>
-                    <h3 class="blog-card-title">
-                        Experten-Tipps für die schriftliche & mündliche Prüfung
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        Effektive Redemittel, Zeitmanagement und typische Fehler bei den Prüfungsteilen Lesen, Hören, Schreiben und Sprechen vermeiden.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> November 2026</span>
-                        </div>
-                        <a href="article-tipps-de.html" class="read-more-link">Lesen <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
+        <!-- Ankündigung für kommende Artikel -->
+        <div class="coming-soon-box">
+            <i data-lucide="sparkles" style="width: 20px; height: 20px; color: var(--accent-blue); vertical-align: middle; margin-right: 8px;"></i>
+            <span>Weitere Artikel (Neuigkeiten & Erfolgsgeschichten) folgen in Kürze!</span>
         </div>
 
         <!-- Emplacement Publicité Advergic (In-Feed) -->

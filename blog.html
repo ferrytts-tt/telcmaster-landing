@@ -32,15 +32,6 @@
 </head>
 <body>
 
-    <!-- Language Switcher (FR / AR / DE) -->
-    <div class="language-switcher" id="langSwitcher">
-        <a href="blog.html" class="lang-option active" title="Français">FR</a>
-        <span class="lang-separator">|</span>
-        <a href="blog-ar.html" class="lang-option" title="العربية">AR</a>
-        <span class="lang-separator">|</span>
-        <a href="blog-de.html" class="lang-option" title="Deutsch">DE</a>
-    </div>
-
     <!-- Main Sticky Navbar -->
     <header class="main-header">
         <div class="header-container">
@@ -59,6 +50,13 @@
                 <a href="blog.html" class="nav-link active" style="color: var(--accent-blue);">Blog</a>
             </nav>
             <div class="header-actions">
+                <div class="language-switcher" id="langSwitcher">
+                    <a href="blog.html" class="lang-option active" title="Français">FR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="blog-ar.html" class="lang-option" title="العربية">AR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="blog-de.html" class="lang-option" title="Deutsch">DE</a>
+                </div>
                 <a href="https://telcmaster-app.com/" class="header-cta">Commencer</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
@@ -114,11 +112,13 @@
             <div style="min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.85rem;">
                 <span>Espace Publicitaire Advergic (Bannière Leaderboard)</span>
             </div>
+        </div>
+
         <!-- ═══ FEATURED ARTICLE (À LA UNE) ═══ -->
         <div class="featured-article-wrap" data-category="conseils">
             <a href="schreiben-telc-b2-eviter-zero.html" class="featured-card">
                 <div class="featured-visual">
-                    <i data-lucide="file-text" class="featured-visual-icon"></i>
+                    <img src="blog-schreiben-telc-b2.jpg" alt="Schreiben telc B2 : comment éviter le 0 ou le 3 sur 45" class="featured-cover-img">
                 </div>
                 <div class="featured-content">
                     <span class="tag-badge tag-conseils">
@@ -141,85 +141,10 @@
                 </div>
             </a>
         </div>
-
-        <!-- Articles Grid (Prêt à afficher vos prochains textes) -->
-        <div class="blog-grid" id="articlesGrid">
-
-            <!-- Template Carte 1 : Nouveautés -->
-            <article class="blog-card" data-category="news">
-                <div class="blog-card-cover cover-teal">
-                    <i data-lucide="bell" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-news">
-                        <i data-lucide="bell" style="width: 12px; height: 12px;"></i>
-                        Nouveautés
-                    </span>
-                    <h3 class="blog-card-title">
-                        Dernières Mises à Jour & Nouveautés TELC B2
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        Découvrez les évolutions récentes de la plateforme, les changements sur l'examen TELC Digi 2.0 et les nouvelles sessions disponibles.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> Novembre 2026</span>
-                        </div>
-                        <a href="article-nouveautes.html" class="read-more-link">Lire <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Template Carte 2 : Success Stories -->
-            <article class="blog-card" data-category="success">
-                <div class="blog-card-cover cover-purple">
-                    <i data-lucide="trophy" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-success">
-                        <i data-lucide="trophy" style="width: 12px; height: 12px;"></i>
-                        Success Story
-                    </span>
-                    <h3 class="blog-card-title">
-                        Success Stories : Témoignages de nos Candidats Admis
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        Parcours inspirants d'étudiants, infirmiers et ingénieurs ayant décroché leur certificat B2 et concrétisé leur projet en Allemagne grâce à TELCMASTER.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> Novembre 2026</span>
-                        </div>
-                        <a href="article-success-story.html" class="read-more-link">Lire <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Template Carte 3 : Conseils & Astuces -->
-            <article class="blog-card" data-category="conseils">
-                <div class="blog-card-cover cover-blue">
-                    <i data-lucide="lightbulb" class="cover-icon"></i>
-                </div>
-                <div class="blog-card-body">
-                    <span class="tag-badge tag-conseils">
-                        <i data-lucide="lightbulb" style="width: 12px; height: 12px;"></i>
-                        Conseils & Astuces
-                    </span>
-                    <h3 class="blog-card-title">
-                        Conseils d'Experts pour Réussir l'Écrit & l'Oral
-                    </h3>
-                    <p class="blog-card-excerpt">
-                        Méthodologie, Redemittel incontournables, gestion du temps et erreurs courantes à éviter lors des épreuves de Lesen, Hören, Schreiben et Sprechen.
-                    </p>
-                    <div class="blog-card-footer">
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 13px; height: 13px;"></i> Novembre 2026</span>
-                        </div>
-                        <a href="article-conseils.html" class="read-more-link">Lire <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-                    </div>
-                </div>
-            </article>
-
+        <!-- Prochains articles en préparation -->
+        <div class="coming-soon-box">
+            <i data-lucide="sparkles" style="width: 20px; height: 20px; color: var(--accent-blue); vertical-align: middle; margin-right: 8px;"></i>
+            <span>De nouveaux articles (Nouveautés & Success Stories) seront publiés très prochainement !</span>
         </div>
 
         <!-- Emplacement Publicité Advergic (In-Feed) -->
