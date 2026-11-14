@@ -27,6 +27,37 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.telcmaster.com/"/>
     </url>
 
+    <!-- Pages du Blog (FR, AR, DE) -->
+    <url>
+        <loc>https://www.telcmaster.com/blog.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/blog.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/blog-ar.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/blog-de.html"/>
+    </url>
+
+    <url>
+        <loc>https://www.telcmaster.com/blog-ar.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/blog-ar.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/blog.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/blog-de.html"/>
+    </url>
+
+    <url>
+        <loc>https://www.telcmaster.com/blog-de.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/blog-de.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/blog.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/blog-ar.html"/>
+    </url>
+
     <!-- Fichiers LLM pour les IA (ChatGPT, Gemini, Claude, Perplexity...) -->
     <url>
         <loc>https://www.telcmaster.com/llms.txt</loc>
