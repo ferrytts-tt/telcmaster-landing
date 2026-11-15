@@ -120,6 +120,37 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/telc-b1-b2-tunisie-ambassade-allemagne-2026-ar.html"/>
     </url>
 
+    <!-- Article : Oral telc B2 Partenaire Silencieux (FR, AR, DE) -->
+    <url>
+        <loc>https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux.html</loc>
+        <lastmod>2026-11-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-ar.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-de.html"/>
+    </url>
+
+    <url>
+        <loc>https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-ar.html</loc>
+        <lastmod>2026-11-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-ar.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-de.html"/>
+    </url>
+
+    <url>
+        <loc>https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-de.html</loc>
+        <lastmod>2026-11-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-de.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.telcmaster.com/telc-b2-oral-partenaire-silencieux-ar.html"/>
+    </url>
+
     <!-- Fichiers LLM pour les IA (ChatGPT, Gemini, Claude, Perplexity...) -->
     <url>
         <loc>https://www.telcmaster.com/llms.txt</loc>

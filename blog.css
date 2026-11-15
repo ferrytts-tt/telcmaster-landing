@@ -500,6 +500,54 @@
     border-bottom: none;
 }
 
+/* Dialogue and Conversation Scenario styling */
+.dialogue-box {
+    background: rgba(13, 20, 32, 0.75);
+    border: 1px solid rgba(0, 209, 255, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 28px 0;
+}
+
+.dialogue-turn {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dialogue-turn:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.speaker-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.speaker-you {
+    background: rgba(0, 209, 255, 0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 209, 255, 0.3);
+}
+
+.speaker-partner {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dialogue-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
 /* In-Article App Banner CTA */
 .in-article-cta {
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(0, 209, 255, 0.15));
