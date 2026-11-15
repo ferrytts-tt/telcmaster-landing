@@ -173,6 +173,25 @@ body {
     width: 100%;
 }
 
+.nav-link-blog {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-blog-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 7px;
+    border-radius: 100px;
+    background: linear-gradient(135deg, #0070FF, #00D1FF);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 209, 255, 0.4);
+    line-height: 1.2;
+}
+
 .header-actions {
     display: flex;
     align-items: center;

@@ -23,15 +23,6 @@
 </head>
 <body>
 
-    <!-- Language Switcher -->
-    <div class="language-switcher" id="langSwitcher">
-        <a href="#" class="lang-option active" title="Français">FR</a>
-        <span class="lang-separator">|</span>
-        <a href="#" class="lang-option" title="العربية">AR</a>
-        <span class="lang-separator">|</span>
-        <a href="#" class="lang-option" title="Deutsch">DE</a>
-    </div>
-
     <!-- Main Sticky Navbar -->
     <header class="main-header">
         <div class="header-container">
@@ -46,8 +37,26 @@
                 <a href="index.html#features" class="nav-link">Fonctionnalités</a>
                 <a href="index.html#pricing" class="nav-link">Tarifs</a>
                 <a href="blog.html" class="nav-link active" style="color: var(--accent-blue);">Blog</a>
+                <div class="mobile-drawer-lang">
+                    <div class="mobile-drawer-lang-title">
+                        <i data-lucide="languages"></i> Langue / اللغة / Sprache
+                    </div>
+                    <div class="mobile-drawer-lang-grid">
+                        <a href="#" class="mobile-drawer-lang-btn active">🇫🇷 FR</a>
+                        <a href="#" class="mobile-drawer-lang-btn">🇹🇳 AR</a>
+                        <a href="#" class="mobile-drawer-lang-btn">🇩🇪 DE</a>
+                    </div>
+                </div>
             </nav>
             <div class="header-actions">
+                <div class="language-switcher" id="langSwitcher">
+                    <i data-lucide="languages" class="lang-icon" aria-hidden="true"></i>
+                    <a href="#" class="lang-option active" title="Français">FR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="#" class="lang-option" title="العربية">AR</a>
+                    <span class="lang-separator">|</span>
+                    <a href="#" class="lang-option" title="Deutsch">DE</a>
+                </div>
                 <a href="https://telcmaster-app.com/" class="header-cta">Commencer</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
@@ -63,6 +72,19 @@
                 <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
                 Retour aux articles
             </a>
+
+            <!-- Mobile Translation Switcher Bar -->
+            <div class="mobile-lang-bar">
+                <div class="mobile-lang-label">
+                    <i data-lucide="languages"></i>
+                    <span>Traductions :</span>
+                </div>
+                <div class="mobile-lang-pills">
+                    <a href="#" class="mobile-lang-pill active">🇫🇷 FR</a>
+                    <a href="#" class="mobile-lang-pill">🇹🇳 AR</a>
+                    <a href="#" class="mobile-lang-pill">🇩🇪 DE</a>
+                </div>
+            </div>
             <span class="tag-badge tag-conseils" style="margin: 0 auto 16px;">
                 <i data-lucide="tag" style="width: 12px; height: 12px;"></i>
                 <!-- Catégorie : Nouveautés / Success Story / Conseils & Astuces -->
